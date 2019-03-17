@@ -9,10 +9,10 @@ public class Veterinary{
 	private ArrayList<HumanClient> customer;
 	
 	//Constructor
-	public Veterinary(MiniRoom[] rooms, ArrayList<ClinicHistory> record, ArrayList<HumanClient> customer){
-		this.rooms = rooms;
-		this.record = record;
-		this.customer = customer;
+	public Veterinary(){
+		rooms = new MiniRoom[8];
+		record = new ArrayList<ClinicHistory>();
+		customer = new ArrayList<HumanClient>();
 	}
 	
 	//get's and set's

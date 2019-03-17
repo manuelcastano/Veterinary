@@ -15,12 +15,12 @@ public class ClinicHistory {
 	private Date exitDate;
 	
 	//constructor
-	public ClinicHistory(boolean status, String symptoms, String diagnostic, Animal data, ArrayList<Medicine> drug, Date joinDate, Date exitDate){
+	public ClinicHistory(boolean status, String symptoms, String diagnostic, Animal data, Date joinDate, Date exitDate){
 		this.status = status;
 		this.symptoms = symptoms;
 		this.diagnostic = diagnostic;
 		this.data = data;
-		this.drug = drug;
+		drug = new ArrayList<Medicine>();
 		this.joinDate = joinDate;
 		this.exitDate = exitDate;
 	}

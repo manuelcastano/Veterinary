@@ -13,12 +13,12 @@ public class HumanClient{
 	private ArrayList<Animal> pet;
 	
 	//constructor
-	public HumanClient(String name, int identifier, String adress, int phoneNumber, ArrayList<Animal> pet){
+	public HumanClient(String name, int identifier, String adress, int phoneNumber){
 		this.name = name;
 		this.identifier = identifier;
 		this.adress = adress;
 		this.phoneNumber = phoneNumber;
-		this.pet = pet;
+		pet = new ArrayList<Animal>();
 	}
 	
 	public String getName(){
