@@ -1,18 +1,73 @@
 package ui;
 import model.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
 	
 	//relations
 	private Veterinary myLittlePet;
+	private Scanner reader;
 	
 	public Main(){
 		init();
+		reader = new Scanner(System.in);
 	}
 	
 	public static void main(String[] args){
 		Main m = new Main();
+		m.welcome();
+		m.showMenu();
+	}
+	
+	//welcome
+	public void welcome(){
+		System.out.println("----------------------------------------------------------------------------------------------");
+		System.out.println("|                             Welcome to My Little Pet                                        |");
+		System.out.println("----------------------------------------------------------------------------------------------");
+	}
+	
+	//Options
+	public void showMenu(){
+		int option = 0;
+		while(option != 9){
+			System.out.println("----------------------------------------------------------------------");
+			System.out.println("1. Register human clients and their pets");
+			System.out.println("2. Hospitalize a pet");
+			System.out.println("3. Make a report of the medical records of hospitalized patients");
+			System.out.println("4. Consult the contact details of the owner of a hospitalized pet");
+			System.out.println("5. Calculate the cost of an hospitalization");
+			System.out.println("6. Discharge an animal that has been hospitalized");
+			System.out.println("7. Know the earnings from the hospitalization service");
+			System.out.println("8. Know the mini room's number occupied by a pet");
+			System.out.println("9. Exit");
+			System.out.println("----------------------------------------------------------------------");
+			option = reader.nextInt();
+			reader.nextLine();
+			switch(option){
+				case(1):
+				break;
+				case(2):
+				break;
+				case(3):
+				break;
+				case(4):
+				break;
+				case(5):
+				break;
+				case(6):
+				break;
+				case(7):
+				break;
+				case(8):
+				break;
+				case(9):
+				break;
+				default:
+				System.out.println("Enter a valid number");
+				break;
+			}
+		}
 	}
 	
 	public void init(){
