@@ -37,4 +37,7 @@ public class Veterinary{
 		this.customer = customer;
 	}
 	
+	public void addClients(HumanClient client1){
+		customer.add(client1);
+	}
 }

@@ -46,6 +46,7 @@ public class Main {
 			reader.nextLine();
 			switch(option){
 				case(1):
+				addCustomers();
 				break;
 				case(2):
 				break;
@@ -78,8 +79,8 @@ public class Main {
 		Medicine drug2 = new Medicine("complex b", 4.5, 5, 10);
 		Medicine drug3 = new Medicine("dolex", 1, 1, 7.5);
 		Medicine drug4 = new Medicine("fencafen", 4.5, 10.6, 11.4);
-		HumanClient client1 = new HumanClient("Tomas", 144921651, "cra 40b #45-60", 315181616);
-		HumanClient client2 = new HumanClient("Fernanda", 125465631, "cra 45a #85-99", 315464661);
+		HumanClient client1 = new HumanClient("Tomas", "144921651", "cra 40b #45-60", "315181616");
+		HumanClient client2 = new HumanClient("Fernanda", "125465631", "cra 45a #85-99", "315464661");
 		Animal animal1 = new Animal("Firulais", 'D', 6, 25.8, client1);
 		Animal animal2 = new Animal("Dante", 'B', 2, 0.2, client2);
 		client1.getPet().add(animal1);
@@ -108,6 +109,42 @@ public class Main {
 		myLittlePet.getCustomer().add(client1);
 		myLittlePet.getCustomer().add(client1);
 	}		
+	
+	//Add human clients and their pets
+	public void addCustomers(){
+		System.out.println("Customer's name:");
+		String theName = reader.nextLine();
+		System.out.println("Customer's identifier:");
+		String theIdentifier = reader.nextLine();
+		System.out.println("Customer's adress:");
+		String theAdress = reader.nextLine();
+		System.out.println("Customer's phone number:");
+		String thePhoneNumber = reader.nextLine();
+		HumanClient temporalClient = new HumanClient(theName, theIdentifier, theAdress, thePhoneNumber);
+		System.out.println("¿How many pets has the customer?:");
+		int quantityPets = reader.nextInt();
+		reader.nextLine();
+		ArrayList<Animal> temporalAnimals = new ArrayList<Animal>();
+		for(int i = 0; i < quantityPets; i++){
+			System.out.println("---------------------------------------------------------------");
+			System.out.println("pet "+(i+1)+":");
+			System.out.println("pet's name:");
+			String petName = reader.nextLine();
+			System.out.println("pet's type(c for cat, d for dog, b for bird, o for others):");
+			char petType = reader.next().charAt(0);
+			System.out.println("pet's age:");
+			int petAge = reader.nextInt();
+			reader.nextLine();
+			System.out.println("pet's weight:");
+			double petWeight = reader.nextDouble();
+			reader.nextLine();
+			Animal temporalPet = new Animal(petName, petType, petAge, petWeight, temporalClient);
+			temporalAnimals.add(temporalPet);
+		}
+		temporalClient.setPet(temporalAnimals);
+		myLittlePet.addClients(temporalClient);
+		System.out.println("The client was added successfully");
+	}
 }
 
 

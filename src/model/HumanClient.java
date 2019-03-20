@@ -5,15 +5,15 @@ public class HumanClient{
 	
 	//attributes
 	private String name;
-	private int identifier;
+	private String identifier;
 	private String adress;
-	private int phoneNumber;
+	private String phoneNumber;
 	
 	//relations
 	private ArrayList<Animal> pet;
 	
 	//constructor
-	public HumanClient(String name, int identifier, String adress, int phoneNumber){
+	public HumanClient(String name, String identifier, String adress, String phoneNumber){
 		this.name = name;
 		this.identifier = identifier;
 		this.adress = adress;
@@ -28,10 +28,10 @@ public class HumanClient{
 		this.name = name;
 	}
 	
-	public int getIdentifier(){
+	public String getIdentifier(){
 		return identifier;
 	}
-	public void setIdentifier(int identifier){
+	public void setIdentifier(String identifier){
 		this.identifier = identifier;
 	}
 	
@@ -42,10 +42,10 @@ public class HumanClient{
 		this.adress = adress;
 	}
 	
-	public int getPhoneNumber(){
+	public String getPhoneNumber(){
 		return phoneNumber;
 	}
-	public void setPhoneNumber (int phoneNumber){
+	public void setPhoneNumber (String phoneNumber){
 		this.phoneNumber = phoneNumber;
 	}
 	
