@@ -56,7 +56,18 @@ public class HumanClient{
 		this.pet = pet;
 	}
 	
+	//to add a pet
 	public void addPet(Animal pet1){
 	  pet.add(pet1);
+	}
+	
+	//to return the name of the pets that the client has
+	public String namePets(){
+		String msg = "";
+		int position = 1;
+		for(int i = 0; i < pet.size(); i++){
+			msg += position+". "+pet.get(i).getName()+"\n";
+		}
+		return msg;
 	}
 }

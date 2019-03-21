@@ -49,6 +49,7 @@ public class Main {
 				addCustomers();
 				break;
 				case(2):
+				hospitalizePet();
 				break;
 				case(3):
 				break;
@@ -141,6 +142,24 @@ public class Main {
 		}
 		myLittlePet.addClients(temporalClient);
 		System.out.println("The client was added successfully");
+	}
+	
+	//to hospitalize a pet
+	public void hospitalizePet(){
+		int error = 0;
+		while (error == 0){
+			System.out.println("owner's identifier:");
+			String theIdentifier = reader.nextLine();
+			if(myLittlePet.findClient(theIdentifier) == true){
+				System.out.println("¿What pet do you want to hospitalize?");
+				System.out.println(myLittlePet.namesPets(theIdentifier));
+				int option = reader.nextInt();
+				error = 1;
+			}
+			else{
+				System.out.println("The client wasn't finded, please enter the identifier again");
+			}
+		}
 	}
 }
 
