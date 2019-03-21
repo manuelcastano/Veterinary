@@ -74,4 +74,8 @@ public class ClinicHistory {
 	public void setExitDate(Date exitDate){
 		this.exitDate = exitDate;
 	}
+	
+	public void addDrugs(Medicine drug1){
+		drug.add(drug1);
+	}
 }

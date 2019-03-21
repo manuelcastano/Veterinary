@@ -55,4 +55,8 @@ public class HumanClient{
 	public void setPet(ArrayList<Animal> pet){
 		this.pet = pet;
 	}
+	
+	public void addPet(Animal pet1){
+	  pet.add(pet1);
+	}
 }

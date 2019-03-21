@@ -83,16 +83,16 @@ public class Main {
 		HumanClient client2 = new HumanClient("Fernanda", "125465631", "cra 45a #85-99", "315464661");
 		Animal animal1 = new Animal("Firulais", 'D', 6, 25.8, client1);
 		Animal animal2 = new Animal("Dante", 'B', 2, 0.2, client2);
-		client1.getPet().add(animal1);
+		client1.addPet(animal1);
 		animal1.setOwner(client1);
-		client2.getPet().add(animal2);
+		client2.addPet(animal2);
 		animal2.setOwner(client2);
 		ClinicHistory history1 = new ClinicHistory(true, "The patient presents pain when walking", "He has broken the heel of Achilles", animal1, joinDate1, exitDate1);
 		ClinicHistory history2 = new ClinicHistory(true, "The patient presents a lot of vomit", "The patient has a stomach flu", animal2, joinDate2, null);
-		history1.getDrug().add(drug1);
-		history1.getDrug().add(drug2);
-		history2.getDrug().add(drug3);
-		history2.getDrug().add(drug4);
+		history1.addDrugs(drug1);
+		history1.addDrugs(drug2);
+		history2.addDrugs(drug3);
+		history2.addDrugs(drug4);
 		MiniRoom room1 = new MiniRoom(true, 1, null);
 		MiniRoom room2 = new MiniRoom(true, 2, null);
 		MiniRoom room3 = new MiniRoom(true, 3, null);
@@ -102,12 +102,11 @@ public class Main {
 		MiniRoom room7 = new MiniRoom(false, 7, history2);
 		MiniRoom room8 = new MiniRoom(true, 8, null);
 		MiniRoom[] temporalRooms = {room1,room2, room3, room4, room5, room6, room7, room8};
-		Veterinary myLittlePet = new Veterinary();
+		myLittlePet = new Veterinary();
 		myLittlePet.setRooms(temporalRooms);
-		myLittlePet.getRecord().add(history1);
-		myLittlePet.getRecord().add(history2);
-		myLittlePet.getCustomer().add(client1);
-		myLittlePet.getCustomer().add(client1);
+		myLittlePet.addHistorys(history1);
+		myLittlePet.addClients(client1);
+		myLittlePet.addClients(client1);
 	}		
 	
 	//Add human clients and their pets
@@ -121,10 +120,9 @@ public class Main {
 		System.out.println("Customer's phone number:");
 		String thePhoneNumber = reader.nextLine();
 		HumanClient temporalClient = new HumanClient(theName, theIdentifier, theAdress, thePhoneNumber);
-		System.out.println("¿How many pets has the customer?:");
+		System.out.println("Â¿How many pets has the customer?:");
 		int quantityPets = reader.nextInt();
 		reader.nextLine();
-		ArrayList<Animal> temporalAnimals = new ArrayList<Animal>();
 		for(int i = 0; i < quantityPets; i++){
 			System.out.println("---------------------------------------------------------------");
 			System.out.println("pet "+(i+1)+":");
@@ -139,9 +137,8 @@ public class Main {
 			double petWeight = reader.nextDouble();
 			reader.nextLine();
 			Animal temporalPet = new Animal(petName, petType, petAge, petWeight, temporalClient);
-			temporalAnimals.add(temporalPet);
+			temporalClient.addPet(temporalPet);
 		}
-		temporalClient.setPet(temporalAnimals);
 		myLittlePet.addClients(temporalClient);
 		System.out.println("The client was added successfully");
 	}

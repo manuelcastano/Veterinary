@@ -40,4 +40,8 @@ public class Veterinary{
 	public void addClients(HumanClient client1){
 		customer.add(client1);
 	}
+	
+	public void addHistorys(ClinicHistory history1){
+		record.add(history1);
+	}
 }
