@@ -44,4 +44,9 @@ public class Medicine {
 	public void setFrequency(double frequency){
 		this.frequency = frequency;
 	}
+	
+	//to get the cost of the medicine
+	public double costMedicine(){
+		return dose*costDose;
+	}
 }

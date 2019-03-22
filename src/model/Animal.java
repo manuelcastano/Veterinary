@@ -59,4 +59,19 @@ public class Animal {
 	public void setOwner(HumanClient owner){
 		this.owner = owner;
 	}
+	
+	//to return the name of the owner
+	public String nameOwner(){
+		return owner.getName();
+	}
+	
+	//to return the identifier of the owner
+	public String identifierOwner(){
+		return owner.getIdentifier();
+	}
+	
+	//to return the contact details of the owner
+	public String contactOwner(){
+		return owner.contactDetails();
+	}
 }

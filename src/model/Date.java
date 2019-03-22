@@ -1,6 +1,6 @@
 package model;
 
-public class Date {
+public class Date{
 	
 	//attributes
 	private int day;
