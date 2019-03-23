@@ -224,4 +224,43 @@ public class Veterinary{
 		}
 		return number;
 	}
+	
+	//to eliminate a pet
+	public String eliminatePet(String identifier, String theName){
+		String msg = "";
+		for(int i = 0; i < customer.size(); i++){
+			if(customer.get(i).getIdentifier().equals(identifier)){
+				msg = customer.get(i).eliminatePet(theName);
+			}
+		}
+		return msg;
+	}
+	
+	//eliminate a client
+	public String eliminateClient(String identifier){
+		String msg = "";
+		for(int i = 0; i < customer.size(); i++){
+			if(customer.get(i).getIdentifier().equals(identifier)){
+				customer.remove(i);
+				msg = "The client was eliminate successfuly";
+			}
+		}
+		return msg;
+	}
+	
+	//to return the clinic historys of a pet
+	public String historyPet(String name, String identifier){
+		String msg = "";
+		for(int i = 0; i < record.size(); i++){
+			if(record.get(i).namePet().equals(name) && record.get(i).ownerIdentifier().equals(identifier)){
+				msg += record.get(i).report();
+			}
+		}
+		for(int i = 0; i < rooms.length; i++){
+			if(rooms[i].getHistory() != null && rooms[i].getHistory().namePet().equals(name) && rooms[i].getHistory().ownerIdentifier().equals(identifier)){
+				msg += rooms[i].getHistory().report();
+			}
+		}
+		return msg;
+	}
 }

@@ -65,9 +65,14 @@ public class HumanClient{
 	public String namePets(){
 		String msg = "";
 		int position = 0;
+		if(pet.isEmpty()){
+			msg = "\nThe client don't has pet";
+		}
+		else{
 		for(int i = 0; i < pet.size(); i++){
 			position++;
 			msg += "\n"+position+". "+pet.get(i).getName();
+		}
 		}
 		return msg;
 	}
@@ -79,6 +84,21 @@ public class HumanClient{
 		msg += "\nThe identifier of the owner is "+getIdentifier();
 		msg += "\nThe adress of the owner is "+getAdress();
 		msg += "\nThe phone number of the owner is "+getPhoneNumber();
+		return msg;
+	}
+	
+	//to eliminate a pet
+	public String eliminatePet(String petName){
+		String msg = "";
+		for(int i = 0; i < pet.size(); i++){
+			if(pet.get(i).getName().equals(petName)){
+				pet.remove(i);
+				msg = "The pet was eliminate successfuly";
+			}
+			else{
+				msg = "The pet doesn't exist";
+			}
+		}
 		return msg;
 	}
 }

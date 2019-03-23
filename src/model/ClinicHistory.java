@@ -86,6 +86,7 @@ public class ClinicHistory {
 		String msg = "";
 		msg += "\nThe owner is "+data.nameOwner();
 		msg += "\nThe pet is "+data.getName();
+		msg += "\n"+data.petType();
 		msg += "\nThe symptoms are "+getSymptoms();
 		msg += "\nThe diagnostic is "+getDiagnostic();
 		msg += "\nThe medicines are:";
@@ -213,5 +214,10 @@ public class ClinicHistory {
 	//to return the name of the pet
 	public String namePet(){
 		return data.getName();
+	}
+	
+	//to return the identifier of the owner
+	public String ownerIdentifier(){
+		return data.identifierOwner();
 	}
 }

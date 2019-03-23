@@ -74,4 +74,22 @@ public class Animal {
 	public String contactOwner(){
 		return owner.contactDetails();
 	}
+	
+	//to return the type of the pet
+	public String petType(){
+		String msg = "";
+		if(type == 'c'){
+			msg = "The pet is a cat";
+		}
+		else if(type == 'd'){
+			msg = "The pet is a dog";
+		}
+		else if(type == 'b'){
+			msg = "The pet is a bird";
+		}
+		else if(type == 'o'){
+			msg = "We don't know the type of the pet";
+		}
+		return msg;
+	}
 }

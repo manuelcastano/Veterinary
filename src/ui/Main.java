@@ -1,3 +1,8 @@
+//Manuel David Castaño Saldarriaga
+//Universidad Icesi
+//Code: A00358994
+//Laboratorio 3. Apo I
+
 package ui;
 import model.*;
 import java.util.ArrayList;
@@ -30,7 +35,7 @@ public class Main {
 	//Options
 	public void showMenu(){
 		int option = 0;
-		while(option != 9){
+		while(option != 13){
 			System.out.println("----------------------------------------------------------------------");
 			System.out.println("1. Register human clients and their pets");
 			System.out.println("2. Hospitalize a pet");
@@ -39,8 +44,12 @@ public class Main {
 			System.out.println("5. Discharge an animal that has been hospitalized");
 			System.out.println("6. Know the earnings from the hospitalization service");
 			System.out.println("7. Know the mini room's number occupied by a pet");
-			System.out.println("8. See the reports from the record of clinic histories");
-			System.out.println("9. Exit");
+			System.out.println("8. Show the reports from the record of clinic histories");
+			System.out.println("9. Eliminate a pet");
+			System.out.println("10. Eliminate a client");
+			System.out.println("11. Show the clinic history of a pet");
+			System.out.println("12. Register only a pet");
+			System.out.println("13. Exit");
 			System.out.println("----------------------------------------------------------------------");
 			option = reader.nextInt();
 			reader.nextLine();
@@ -70,6 +79,18 @@ public class Main {
 				System.out.println(myLittlePet.reportsRecord());
 				break;
 				case(9):
+				eliminatePet();
+				break;
+				case(10):
+				eliminateClient();
+				break;
+				case(11):
+				historyPet();
+				break;
+				case(12):
+				addPet();
+				break;
+				case(13):
 				break;
 				default:
 				System.out.println("Enter a valid number");
@@ -86,7 +107,7 @@ public class Main {
 		Medicine drug2 = new Medicine("complex b", 4.5, 5, 10);
 		Medicine drug3 = new Medicine("dolex", 1, 1, 7.5);
 		Medicine drug4 = new Medicine("fencafen", 4.5, 10.6, 11.4);
-		HumanClient client1 = new HumanClient("Tomas", "144921651", "cra 40b #45-60", "315181616");
+		HumanClient client1 = new HumanClient("Tomas", "4646464646", "cra 40b #45-60", "315181616");
 		HumanClient client2 = new HumanClient("Fernanda", "125465631", "cra 45a #85-99", "315464661");
 		Animal animal1 = new Animal("Firulais", 'd', 6, 25.8, client1);
 		Animal animal2 = new Animal("Dante", 'd', 2, 1.6, client2);
@@ -122,6 +143,10 @@ public class Main {
 		String theName = reader.nextLine();
 		System.out.println("Customer's identifier:");
 		String theIdentifier = reader.nextLine();
+		if(myLittlePet.findClient(theIdentifier)){
+			System.out.println("The client is already registered");
+		}
+		else{
 		System.out.println("Customer's adress:");
 		String theAdress = reader.nextLine();
 		System.out.println("Customer's phone number:");
@@ -155,6 +180,7 @@ public class Main {
 		}
 		myLittlePet.addClients(temporalClient);
 		System.out.println("The client was added successfully");
+		}
 	}
 
 	//to hospitalize a pet
@@ -226,7 +252,7 @@ public class Main {
 			System.out.println(myLittlePet.occupiedRooms());
 			int option = reader.nextInt();
 			reader.nextLine();
-			if(myLittlePet.roomOccupied(option-1) == false){
+			if(myLittlePet.getRooms().length < option || myLittlePet.roomOccupied(option-1) == false){
 				System.out.println("This room are not available");
 			}
 			else{
@@ -286,6 +312,92 @@ public class Main {
 		}
 		else{
 			System.out.println("The pet wasn't founded");
+		}
+	}
+	
+	//to eliminate a pet
+	public void eliminatePet(){
+		System.out.println("¿What is the identifier of the owner?");
+		String theIdentifier = reader.nextLine();
+		if(!myLittlePet.findClient(theIdentifier)){
+			System.out.println("The client doesn't exist");
+		}
+		else{
+			System.out.println("¿What pet do you want to hospitalize?");
+			System.out.println(myLittlePet.returnClient(theIdentifier).namePets());
+			if(!(myLittlePet.returnClient(theIdentifier).namePets().equals("\nThe client don't has pets"))){
+			int option = reader.nextInt();
+			reader.nextLine();
+			String theName = myLittlePet.returnClient(theIdentifier).getPet().get(option-1).getName();
+			System.out.println(myLittlePet.eliminatePet(theIdentifier, theName));
+			}
+		}
+	}
+	
+	//to eliminate a client
+	public void eliminateClient(){
+		System.out.println("¿What is the identifier of the client?");
+		String theIdentifier = reader.nextLine();
+		if(!myLittlePet.findClient(theIdentifier)){
+			System.out.println("The client doesn't exist");
+		}
+		else{
+			System.out.println(myLittlePet.eliminateClient(theIdentifier));
+		}
+	}
+	
+	//to show the clinic history of a pet
+	public void historyPet(){
+		System.out.println("¿What is the identifier of the owner?");
+		String theIdentifier = reader.nextLine();
+		if(!myLittlePet.findClient(theIdentifier)){
+			System.out.println("The client doesn't exist");
+		}
+		else{
+			System.out.println("¿From what pet do you want to see the clinic history?");
+			System.out.println(myLittlePet.returnClient(theIdentifier).namePets());
+			if(!(myLittlePet.returnClient(theIdentifier).namePets().equals("\nThe client don't has pets"))){
+			int option = reader.nextInt();
+			reader.nextLine();
+			String theName = myLittlePet.returnClient(theIdentifier).getPet().get(option-1).getName();
+			if(myLittlePet.historyPet(theName, theIdentifier) != null){
+			System.out.println(myLittlePet.historyPet(theName, theIdentifier));
+			}
+			else{
+				System.out.println("The pet has not been hospitalized yet");
+			}
+			}
+		}
+	}
+	
+	//to add only a pet
+	public void addPet(){
+		System.out.println("¿What is the identifier of the owner?");
+		String theIdentifier = reader.nextLine();
+		if(!myLittlePet.findClient(theIdentifier)){
+			System.out.println("The client doesn't exist");
+		}
+		else{
+			System.out.println("pet's name:");
+			String petName = reader.nextLine();
+			int errorType = 0;
+			char petType = ' ';
+			while(errorType == 0){
+				System.out.println("pet's type(c for cat, d for dog, b for bird, o for others):");
+				petType = reader.next().charAt(0);
+				if(petType == 'c' || petType == 'd' ||petType == 'b' ||petType == 'o'){
+					errorType = 1;
+				}
+			}
+			System.out.println("pet's age:");
+			int petAge = reader.nextInt();
+			reader.nextLine();
+			System.out.println("pet's weight:");
+			double petWeight = reader.nextDouble();
+			reader.nextLine();
+			Animal temporalPet = new Animal(petName, petType, petAge, petWeight, myLittlePet.returnClient(theIdentifier));
+			myLittlePet.returnClient(theIdentifier).addPet(temporalPet);
+			System.out.println("The pet was added successfully");
 		}
 	}
 }
