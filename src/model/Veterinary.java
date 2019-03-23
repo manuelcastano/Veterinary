@@ -71,21 +71,6 @@ public class Veterinary{
 		return client1;
 	}
 
-	//to find the position in the ArrayList of the customer
-	public int positionCustomer(String identifier){
-		int position = 0;
-		boolean clientFinded = false;
-		if(findClient(identifier) == true){
-			for(int i = 0; !clientFinded && i < customer.size(); i++){
-				if(identifier.equals(customer.get(i).getIdentifier())){
-					position = i;
-					clientFinded = true;
-				}
-			}
-		}
-		return position;
-	}
-
 	//to return if a room is available
 	public boolean availableRoom(){
 		boolean isAvailable = false;
