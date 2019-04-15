@@ -216,8 +216,4 @@ public class ClinicHistory {
 		return data.getName();
 	}
 	
-	//to return the identifier of the owner
-	public String ownerIdentifier(){
-		return data.identifierOwner();
-	}
 }

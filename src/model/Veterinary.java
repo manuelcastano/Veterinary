@@ -7,12 +7,14 @@ public class Veterinary{
 	private MiniRoom[] rooms;
 	private ArrayList<ClinicHistory> record;
 	private ArrayList<HumanClient> customer;
+	private ArrayList<Service> theServices;
 
 	//Constructor
 	public Veterinary(){
 		rooms = new MiniRoom[8];
 		record = new ArrayList<ClinicHistory>();
 		customer = new ArrayList<HumanClient>();
+		theServices = new ArrayList<Service>();
 	}
 
 	//get's and set's
@@ -36,6 +38,13 @@ public class Veterinary{
 	public void setCustomer(ArrayList<HumanClient> customer){
 		this.customer = customer;
 	}
+	
+	public ArrayList<Service> getTheServices(){
+		return theServices;
+	}
+	public void setTheServices(ArrayList<Service> theServices){
+		this.theServices = theServices;
+	}
 
 	public void addClients(HumanClient client1){
 		customer.add(client1);
@@ -43,6 +52,10 @@ public class Veterinary{
 
 	public void addHistorys(ClinicHistory history1){
 		record.add(history1);
+	}
+	
+	public void addTheServices(Service newService){
+		theServices.add(newService);
 	}
 
 	//to find a client
@@ -237,12 +250,12 @@ public class Veterinary{
 	public String historyPet(String name, String identifier){
 		String msg = "";
 		for(int i = 0; i < record.size(); i++){
-			if(record.get(i).namePet().equals(name) && record.get(i).ownerIdentifier().equals(identifier)){
+			if(record.get(i).namePet().equals(name) && record.get(i).identifierOwner().equals(identifier)){
 				msg += record.get(i).report();
 			}
 		}
 		for(int i = 0; i < rooms.length; i++){
-			if(rooms[i].getHistory() != null && rooms[i].getHistory().namePet().equals(name) && rooms[i].getHistory().ownerIdentifier().equals(identifier)){
+			if(rooms[i].getHistory() != null && rooms[i].getHistory().namePet().equals(name) && rooms[i].getHistory().identifierOwner().equals(identifier)){
 				msg += rooms[i].getHistory().report();
 			}
 		}
