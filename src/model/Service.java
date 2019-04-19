@@ -1,5 +1,8 @@
 package model;
 
+/**
+*This class contains the service's information
+*/
 public class Service{
 	
 	//constants
@@ -19,7 +22,12 @@ public class Service{
 	private Date realization;
 	private Animal thePet;
 	
-	//constructor
+	/**
+	*Service constructor
+	*@param type the type of the service
+	*@param realization the realization date of the service
+	*@param thePet the pet to whom the service was performed
+	*/
 	public Service(String type, Date realization, Animal thePet){
 		this.type = type;
 		this.realization = realization;
@@ -29,48 +37,102 @@ public class Service{
 		namePet = thePet.getName();
 	}
 	
+	/**
+	*Gets the type
+	*@return the type of the service
+	*/
 	public String getType(){
 		return type;
 	}
+	/**
+	*Sets the type
+	*@param type the type of the service
+	*/
 	public void setType(String type){
 		this.type = type;
 	}
 	
+	/**
+	*Gets the cost
+	*@return the cost of the service
+	*/
 	public double getCost(){
 		return cost;
 	}
+	/**
+	*Sets the cost
+	*@param cost the cost of the service
+	*/
 	public void setCost(double cost){
 		this.cost = cost;
 	}
 	
+	/**
+	*Gets the identifier of the owner
+	*@return the identifier of the pet's owner
+	*/
 	public String getIdentifierOwner(){
 		return identifierOwner;
 	}
+	/**
+	*Sets the identifier of the owner
+	*@param identifierOwner the identifier of the pet's owner
+	*/
 	public void setIdentifierOwner(String identifierOwner){
 		this.identifierOwner = identifierOwner;
 	}
 	
+	/**
+	*Gets the name of the pet
+	*@return the pet's name
+	*/
 	public String getNamePet(){
 		return namePet;
 	}
+	/**
+	*Sets the name of the pet
+	*@param namePet the pet's name
+	*/
 	public void setNamePet(String namePet){
 		this.namePet = namePet;
 	}
 	
+	/**
+	*Gets the realization date
+	*@return the realization date
+	*/
 	public Date getRealization(){
 		return realization;
 	}
+	/**
+	*Sets the realization date
+	*@param realization the realization date
+	*/
 	public void setRealization(Date realization){
 		this.realization = realization;
 	}
 	
+	/**
+	*Gets the pet
+	*@return the pet
+	*/
 	public Animal getThePet(){
 		return thePet;
 	}
+	/**
+	*Sets the pet
+	*@param thePet the pet
+	*/
 	public void setThePet(Animal thePet){
 		this.thePet = thePet;
 	}
 	
+	/**
+	*Calculates the cost of the service<br>
+	*pre: the service was created before and the type must be not null<br>
+	*post: the cost is calculated<br>
+	*@return the cost of the service
+	*/
 	public double calculateCost(){
 		double theCost = 0.0;
 		if(type.equals(PET_SHOWER_V)){

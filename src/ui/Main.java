@@ -5,34 +5,47 @@
 
 package ui;
 import model.*;
-import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+*This is the main class, is for the interaction between the user and the program
+*/
 public class Main {
 
 	//relations
 	private Veterinary myLittlePet;
 	private Scanner reader;
-
+	
+	/**
+	*Main constructor
+	*/
 	public Main(){
 		init();
 		reader = new Scanner(System.in);
 	}
-
+	
+	/**
+	*The main method, is the started point of the program
+	*@param args is an array of String, taken from the command list
+	*/
 	public static void main(String[] args){
 		Main m = new Main();
 		m.welcome();
 		m.showMenu();
 	}
 
-	//welcome
+	/**
+	*A text to give the welcome to the user
+	*/
 	public void welcome(){
 		System.out.println("----------------------------------------------------------------------------------------------");
 		System.out.println("|                             Welcome to My Little Pet                                        |");
 		System.out.println("----------------------------------------------------------------------------------------------");
 	}
 
-	//Options
+	/**
+	*To show the options that can do the user
+	*/
 	public void showMenu(){
 		int option = 0;
 		while(option != 13){
@@ -98,7 +111,10 @@ public class Main {
 			}
 		}
 	}
-
+	
+	/**
+	*To iniatialize default objects to check the funcionality of the program
+	*/
 	public void init(){
 		Date joinDate1 = new Date(21, 3, 2019);
 		Date exitDate1 = new Date(25, 3, 2019);
@@ -137,7 +153,9 @@ public class Main {
 		myLittlePet.addClients(client2);
 	}
 
-	//Add human clients and their pets
+	/**
+	*To add new customers and their pets
+	*/
 	public void addCustomers(){
 		System.out.println("Customer's name:");
 		String theName = reader.nextLine();
@@ -183,7 +201,9 @@ public class Main {
 		}
 	}
 
-	//to hospitalize a pet
+	/**
+	*to hospitalize a pet
+	*/
 	public void hospitalizePet(){
 		if(myLittlePet.availableRoom() == true){
 			int error = 0;
@@ -244,7 +264,9 @@ public class Main {
 		}
 	}
 	
-	//to consult the contact details of the owner
+	/**
+	*to consult the contact details of the owner
+	*/
 	public void contactOwner(){
 		int error = 0;
 		while (error == 0){
@@ -262,9 +284,11 @@ public class Main {
 		}
 	}
 	
-	//to discharge a pet that is hopitalized
+	/**
+	*to discharge a pet that is hopitalized
+	*/
 	public void dischargePet(){
-		if(myLittlePet.numberRoomsAvailable() == 8){
+		if(!myLittlePet.availableRoom()){
 			System.out.println("There is not pets hospitalized");
 		}
 		else{
@@ -301,7 +325,9 @@ public class Main {
 		}
 	}
 	
-	//to know the number of room that is occupied by a pet
+	/**
+	*to know the number of room that is occupied by a pet
+	*/
 	public void roomPet(){
 		System.out.println("¿What is the name of the pet?");
 		String theName = reader.nextLine();
@@ -315,7 +341,9 @@ public class Main {
 		}
 	}
 	
-	//to eliminate a pet
+	/**
+	*to eliminate a pet
+	*/
 	public void eliminatePet(){
 		System.out.println("¿What is the identifier of the owner?");
 		String theIdentifier = reader.nextLine();
@@ -334,7 +362,9 @@ public class Main {
 		}
 	}
 	
-	//to eliminate a client
+	/**
+	*to eliminate a client
+	*/
 	public void eliminateClient(){
 		System.out.println("¿What is the identifier of the client?");
 		String theIdentifier = reader.nextLine();
@@ -346,7 +376,9 @@ public class Main {
 		}
 	}
 	
-	//to show the clinic history of a pet
+	/**
+	*to show the clinic history of a pet
+	*/
 	public void historyPet(){
 		System.out.println("¿What is the identifier of the owner?");
 		String theIdentifier = reader.nextLine();
@@ -370,7 +402,9 @@ public class Main {
 		}
 	}
 	
-	//to add only a pet
+	/**
+	*to add only a pet
+	*/
 	public void addPet(){
 		System.out.println("¿What is the identifier of the owner?");
 		String theIdentifier = reader.nextLine();

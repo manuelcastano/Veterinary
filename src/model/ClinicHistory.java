@@ -3,6 +3,9 @@ import java.util.*;
 import java.time.*;
 import java.time.temporal.ChronoUnit;
 
+/**
+*This class contains the information of the clinic history of a pet
+*/
 public class ClinicHistory {
 
 	//attributes
@@ -16,7 +19,15 @@ public class ClinicHistory {
 	private Date joinDate;
 	private Date exitDate;
 
-	//constructor
+	/**
+	*ClinicHistory constructor
+	*@param status the status of the history. this param must be not null.
+	*@param symptoms the symptomsof the pet. this param must be not null.
+	*@param diagnostic the diagnostic of the pet. this param must be not null.
+	*@param data the pet. this param must be not null.
+	*@param joinDate the hospitalized day . this param must be not null.
+	*@param exitDate the discharge date. this param could be null.
+	*/
 	public ClinicHistory(boolean status, String symptoms, String diagnostic, Animal data, Date joinDate, Date exitDate){
 		this.status = status;
 		this.symptoms = symptoms;
@@ -27,61 +38,125 @@ public class ClinicHistory {
 		this.exitDate = exitDate;
 	}
 
-	//get's and set's
+	/**
+	*Gets the status
+	*@return the status of the history
+	*/
 	public boolean getStatus(){
 		return status;
 	}
+	/**
+	*Sets the status
+	*@param status the history's status
+	*/
 	public void setStatus(boolean status){
 		this.status = status;
 	}
-
+	
+	/**
+	*Gets the symptoms
+	*@return the symptoms of the pet
+	*/
 	public String getSymptoms(){
 		return symptoms;
 	}
+	/**
+	*Sets the symptoms
+	*@param symptoms the symptoms of the pet
+	*/
 	public void setSymptoms(String symptoms){
 		this.symptoms = symptoms;
 	}
-
+	
+	/**
+	*Gets the diagnostic
+	*@return the clinic diagnostic
+	*/
 	public String getDiagnostic(){
 		return diagnostic;
 	}
+	/**
+	*Sets the diagnostic
+	*@param diagnostic the clinic diagnostic
+	*/
 	public void setDiagnostic(String diagnostic){
 		this.diagnostic = diagnostic;
 	}
-
+	
+	/**
+	*Gets the pet
+	*@return the pet
+	*/
 	public Animal getData(){
 		return data;
 	}
+	/**
+	*Sets the pet
+	*@param data the pet
+	*/
 	public void setData(Animal data){
 		this.data = data;
 	}
-
+	
+	/**
+	*Gets the medicines
+	*@return the medicines
+	*/
 	public ArrayList<Medicine> getDrug(){
 		return drug;
 	}
+	/**
+	*Set the medicines
+	*@param drug the medicines
+	*/
 	public void setDrug(ArrayList<Medicine> drug){
 		this.drug = drug;
 	}
-
+	
+	/**
+	*Gets the join date
+	*@return the join date
+	*/
 	public Date getJoinDate(){
 		return joinDate;
 	}
+	/**
+	*Sets the join date
+	*@param joinDate the join date
+	*/
 	public void setDate(Date joinDate){
 		this.joinDate = joinDate;
 	}
-
+	
+	/**
+	*Gets the exit date
+	*@return the exit date
+	*/
 	public Date getExitDate(){
 		return exitDate;
 	}
+	/**
+	*Sets the exit date
+	*@param exitDate the exit date
+	*/
 	public void setExitDate(Date exitDate){
 		this.exitDate = exitDate;
 	}
-
+	
+	/**
+	*To add a new medicine to the clinic history
+	*@param drug1 the medicine to add
+	*/
 	public void addDrugs(Medicine drug1){
 		drug.add(drug1);
 	}
 	
-	//to make the report
+	/**
+	*To make a report of the clinic history<br>
+	*pre: the clinic history was created before<br>
+	*post: the report is made<br>
+	*@return the report of the clinic history
+	*/
 	public String report(){
 		String msg = "";
 		msg += "\nThe owner is "+data.nameOwner();
@@ -103,12 +178,22 @@ public class ClinicHistory {
 		return msg;
 	}
 	
-	//to return the contact details of the owner
+	/**
+	*to return the contact details of the owner<br>
+	*pre: the clinic history was created before and the pet must be not null<br>
+	*post: the details for contact the owner of the pet<br>
+	*@return the details fot contact to the owner
+	*/
 	public String contactOwner(){
 		return data.contactOwner();
 	}
 	
-	//to get the days of hospitalization
+	/**
+	*to calculate the days hospitalized<br>
+	*pre: the clinic history was created before and the join date must be not null<br>
+	*post: the days hospitalized is calculated<br>
+	*@return the days hospitalized
+	*/
 	public int daysHospitalized(){
 		int days = 0;
 		if(exitDate == null){
@@ -140,7 +225,10 @@ public class ClinicHistory {
 		return days;
 	}
 	
-	//to get the cost of the hospitalization
+	/**
+	*to calculate the cost of the hospitalization service
+	*@return the cost of the hospitalized service
+	*/
 	public double hospitalizationCost(){
 		double theCost = 0.0;
 		if(data.getType() == 'c'){
@@ -206,12 +294,22 @@ public class ClinicHistory {
 		return theCost;
 	}
 	
-	//to return the identifier of the owner of the pet
+	/**
+	*to return the identifier of the owner of the pet<br>
+	*pre: the clinic history was created before and the pet must be not null<br>
+	*post: the identifier of the owner is delivered<br>
+	*@return the identifier of the owner
+	*/
 	public String identifierOwner(){
 		return data.identifierOwner();
 	}
 	
-	//to return the name of the pet
+	/**
+	*to return the name of the pet<br>
+	*pre: The clinic history was created before end the pet must be not null<br>
+	*post: the pet's name is delivered<br>
+	*@return the name of the pet
+	*/
 	public String namePet(){
 		return data.getName();
 	}
