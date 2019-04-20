@@ -14,6 +14,7 @@ public class Animal {
 	private char type;
 	private int age;
 	private double weight;
+	private double height;
 	
 	//relations
 	private HumanClient owner;
@@ -24,13 +25,15 @@ public class Animal {
 	*@param type the animal's type
 	*@param age the animal's age
 	*@param weight the animal's weight
+	*@param height the animal's height
 	*@param owner the owner of the animal. This param must be not null
 	*/
-	public Animal(String name, char type, int age, double weight, HumanClient owner){
+	public Animal(String name, char type, int age, double weight, double height, HumanClient owner){
 		this.name = name;
 		this.type = type;
 		this.age = age;
 		this.weight = weight;
+		this.height = height;
 		this.owner = owner;
 	}
 	
@@ -92,6 +95,21 @@ public class Animal {
 	*/
 	public void setWeight(double weight){
 		this.weight = weight;
+	}
+	
+	/**
+	*Gets the height
+	*@return the animal's height
+	*/
+	public double getHeight(){
+		return height;
+	}
+	/**
+	*Sets the height
+	*@param height the animal's height
+	*/
+	public void setHeight(double height){
+		this.height = height;
 	}
 	
 	/**
@@ -161,4 +179,16 @@ public class Animal {
 		}
 		return msg;
 	}
+	
+	/**
+	*Description This method allows to calculate the body mass index for a pet.<br>
+	*pre: The pet was created before and its attributes height and weight are not null neither height must be zero.<br>
+	*post: The BMI is calculated.<br>
+	*@return The pet body mass index.
+	*@throws  ArithmeticException If the height is zero, so an exception is thrown due to the division on zero does not exist.
+	*/
+	public double bodyMassIndex(){
+		return weight/(height * height);
+	}
+
 }

@@ -125,8 +125,8 @@ public class Main {
 		Medicine drug4 = new Medicine("fencafen", 4.5, 10.6, 11.4);
 		HumanClient client1 = new HumanClient("Tomas", "4646464646", "cra 40b #45-60", "315181616");
 		HumanClient client2 = new HumanClient("Fernanda", "125465631", "cra 45a #85-99", "315464661");
-		Animal animal1 = new Animal("Firulais", 'd', 6, 25.8, client1);
-		Animal animal2 = new Animal("Dante", 'd', 2, 1.6, client2);
+		Animal animal1 = new Animal("Firulais", 'd', 6, 25.8, 1.2, client1);
+		Animal animal2 = new Animal("Dante", 'd', 2, 1.6, 0.7, client2);
 		client1.addPet(animal1);
 		animal1.setOwner(client1);
 		client2.addPet(animal2);
@@ -193,7 +193,10 @@ public class Main {
 			System.out.println("pet's weight:");
 			double petWeight = reader.nextDouble();
 			reader.nextLine();
-			Animal temporalPet = new Animal(petName, petType, petAge, petWeight, temporalClient);
+			System.out.println("pet's height:");
+			double petHeight = reader.nextDouble();
+			reader.nextLine();
+			Animal temporalPet = new Animal(petName, petType, petAge, petWeight, petHeight, temporalClient);
 			temporalClient.addPet(temporalPet);
 		}
 		myLittlePet.addClients(temporalClient);
@@ -429,7 +432,10 @@ public class Main {
 			System.out.println("pet's weight:");
 			double petWeight = reader.nextDouble();
 			reader.nextLine();
-			Animal temporalPet = new Animal(petName, petType, petAge, petWeight, myLittlePet.returnClient(theIdentifier));
+			System.out.println("pet's height:");
+			double petHeight = reader.nextDouble();
+			reader.nextLine();
+			Animal temporalPet = new Animal(petName, petType, petAge, petWeight, petHeight, myLittlePet.returnClient(theIdentifier));
 			myLittlePet.returnClient(theIdentifier).addPet(temporalPet);
 			System.out.println("The pet was added successfully");
 		}

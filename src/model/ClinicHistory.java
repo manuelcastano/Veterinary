@@ -314,4 +314,46 @@ public class ClinicHistory {
 		return data.getName();
 	}
 	
+	/**
+	*Description This method allows to add new medicines that were prescription during the hospitalization at the patient stories.<br>
+	*pre: The patient clinic story must be not null.<br>
+	*post: New medicines were added to the patient clinic story.<br>
+	*@param name The medicine name. This param must be not null.
+	*@param dose The medicine dose, this param refers to the amount of medicine supplied to the pet each time according the frequence assigned. This param must be not null.
+	*@param costDose The medicine cost by each dose. This param could be empty.
+	*@param frequency The frequency of medicine application. This param could be empty.
+	*@return A message that indiques if medicine was added to the patient clinic story
+	*/
+	public String addMedicines(String name, double dose, double costDose, double frequency){
+		String msg = "";
+		if(name == null){
+			msg += "The name must be not null";
+		}
+		else{
+			Medicine toAdd = new Medicine(name, dose, costDose, frequency);
+			addDrugs(toAdd);
+			msg += "The medicine was added to the clinic history";
+		}
+		return msg;
+	}
+	
+	/**
+	*Description This method allows to add new notes to the possible diagnostic during the hospitalization at the patient stories.<br>
+	*pre: The patient clinic story must be not null.<br>
+	*post: New notes were added to the possible diagnostic in the patient clinic story.<br>
+	*@param diagnostic The notes of possible diagnostic. This param must be not null.
+	*/
+	public void addNotes(String diagnostic){
+		this.diagnostic += diagnostic;
+	}
+	
+	/**
+	*Description This method allows to add a new symptom presented during the hospitalization at the patient stories.<br>
+	*pre: The patient clinic story must be not null.<br>
+	*post: A new symptom were added to the patient clinic story.<br>
+	*@param symptom The new symptom presented. This param must be not null.
+	*/
+	public void addSymptoms(String symptom){
+		symptoms += symptom;
+	}
 }

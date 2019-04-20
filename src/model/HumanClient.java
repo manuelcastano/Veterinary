@@ -109,6 +109,7 @@ public class HumanClient{
 	*to add a pet<br>
 	*pre: The human client was created before and the pet is initialized<br>
 	*post: The new pet were added to the human client<br>
+	*@param pet1 the pet to add
 	*/
 	public void addPet(Animal pet1){
 	  pet.add(pet1);
@@ -167,5 +168,17 @@ public class HumanClient{
 			}
 		}
 		return msg;
+	}
+	
+	/**
+	*Description This method allows to update the basic data of a veterinary client, these data include, address and phone number.
+	*pre: The client was created before.
+	*post: The address and /or phone number of the client is updated.
+	*@param address The new address of the client. This param could be empty.
+	*@param phoneNumber The new phone number of the client. This param could be empty.
+	*/
+	public void updatedData(String address, String phoneNumber){
+		this.address = address;
+		this.phoneNumber = phoneNumber;
 	}
 }
