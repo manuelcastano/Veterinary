@@ -158,14 +158,16 @@ public class HumanClient{
 	*/
 	public String eliminatePet(String petName){
 		String msg = "";
-		for(int i = 0; i < pet.size(); i++){
+		boolean finded = false;
+		for(int i = 0; i < pet.size() && !finded; i++){
 			if(pet.get(i).getName().equals(petName)){
 				pet.remove(i);
 				msg = "The pet was eliminate successfuly";
+				finded = true;
 			}
-			else{
-				msg = "The pet doesn't exist";
-			}
+		}
+		if(!finded){
+			msg = "The pet doesn't exist";
 		}
 		return msg;
 	}
