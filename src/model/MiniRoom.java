@@ -2,6 +2,9 @@ package model;
 
 /**
 *This class contains the mini room's information
+*@author Manuel David Castaño Saldarriaga
+*Icesi University<br>
+*APO I<br>
 */
 public class MiniRoom {
 

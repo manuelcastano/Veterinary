@@ -2,6 +2,9 @@ package model;
 
 /**
 *This class is for contains the dates
+*@author Manuel David Castaño Saldarriaga
+*Icesi University<br>
+*APO I<br>
 */
 public class Date{
 	

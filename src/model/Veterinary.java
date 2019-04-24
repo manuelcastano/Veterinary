@@ -3,6 +3,9 @@ import java.util.ArrayList;
 
 /**
 *This is the main class in the model, contains all information for the veterinary
+*@author Manuel David Castaño Saldarriaga
+*Icesi University<br>
+*APO I<br>
 */
 public class Veterinary{
 

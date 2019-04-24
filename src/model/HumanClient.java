@@ -3,6 +3,9 @@ import java.util.ArrayList;
 
 /**
 *This class constains the information for the customers
+*@author Manuel David Castaño Saldarriaga
+*Icesi University<br>
+*APO I<br>
 */
 public class HumanClient{
 

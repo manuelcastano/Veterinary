@@ -2,6 +2,9 @@ package model;
 
 /**
 *This class contains the information for each medicine
+*@author Manuel David Castaño Saldarriaga
+*Icesi University<br>
+*APO I<br>
 */
 public class Medicine {
 	

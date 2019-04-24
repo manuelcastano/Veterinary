@@ -5,6 +5,9 @@ import java.time.temporal.ChronoUnit;
 
 /**
 *This class contains the information of the clinic history of a pet
+*@author Manuel David Castaño Saldarriaga
+*Icesi University<br>
+*APO I<br>
 */
 public class ClinicHistory {
 

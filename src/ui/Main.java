@@ -1,14 +1,12 @@
-//Manuel David Castaño Saldarriaga
-//Universidad Icesi
-//Code: A00358994
-//Laboratorio 3. Apo I
-
 package ui;
 import model.*;
 import java.util.Scanner;
 
 /**
 *This is the main class, is for the interaction between the user and the program
+*@author Manuel David Castaño Saldarriaga
+*Icesi University<br>
+*APO I<br>
 */
 public class Main {
 
@@ -116,9 +114,13 @@ public class Main {
 	*To iniatialize default objects to check the funcionality of the program
 	*/
 	public void init(){
+		myLittlePet = new Veterinary();
 		Date joinDate1 = new Date(21, 3, 2019);
 		Date exitDate1 = new Date(25, 3, 2019);
 		Date joinDate2 = new Date(25, 6, 2018);
+		Date dateService1 = new Date(23, 7, 2014);
+		Date dateService2 = new Date(15, 8, 2017);
+		Date dateService3 = new Date(11, 9, 2018);
 		Medicine drug1 = new Medicine("acetaminophen", 1.5, 2.35, 8.5);
 		Medicine drug2 = new Medicine("complex b", 4.5, 5, 10);
 		Medicine drug3 = new Medicine("dolex", 1, 1, 7.5);
@@ -127,10 +129,12 @@ public class Main {
 		HumanClient client2 = new HumanClient("Fernanda", "125465631", "cra 45a #85-99", "315464661");
 		Animal animal1 = new Animal("Firulais", 'd', 6, 25.8, 1.2, client1);
 		Animal animal2 = new Animal("Dante", 'd', 2, 1.6, 0.7, client2);
+		Animal animal3 = new Animal("Manchas", 'c', 10, 20.5, 1.5, client1);
+		Animal animal4 = new Animal("Piter", 'o', 5, 50.2, 1, client2);
 		client1.addPet(animal1);
-		animal1.setOwner(client1);
+		client1.addPet(animal3);
 		client2.addPet(animal2);
-		animal2.setOwner(client2);
+		client2.addPet(animal4);
 		ClinicHistory history1 = new ClinicHistory(true, "The patient presents pain when walking", "He has broken the heel of Achilles", animal1, joinDate1, exitDate1);
 		ClinicHistory history2 = new ClinicHistory(true, "The patient presents a lot of vomit", "The patient has a stomach flu", animal2, joinDate2, null);
 		history1.addDrugs(drug1);
@@ -146,11 +150,16 @@ public class Main {
 		MiniRoom room7 = new MiniRoom(false, 7, history2);
 		MiniRoom room8 = new MiniRoom(true, 8, null);
 		MiniRoom[] temporalRooms = {room1,room2, room3, room4, room5, room6, room7, room8};
-		myLittlePet = new Veterinary();
 		myLittlePet.setRooms(temporalRooms);
 		myLittlePet.addHistorys(history1);
 		myLittlePet.addClients(client1);
 		myLittlePet.addClients(client2);
+		Service service1 = new Service(Service.PET_SHOWER_V, dateService1, animal4);
+		Service service2 = new Service(Service.PET_SHOWER_D, dateService2, animal2);
+		Service service3 = new Service(Service.NAIL_CUT, dateService3, animal1);
+		myLittlePet.addTheServices(service1);
+		myLittlePet.addTheServices(service2);
+		myLittlePet.addTheServices(service3);
 	}
 
 	/**
