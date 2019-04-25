@@ -17,7 +17,7 @@ public class Medicine {
 	/**
 	*Medicine constructor
 	*@param name the name of the medicine. This param must be not null.
-	*@param dose the dose of the medicine for the patient. This param must be not null.
+	*@param dose the dose of the medicine for the patient.
 	*@param costDose the cost of each dose
 	*@param frequency the frequency of the medicine
 	*/

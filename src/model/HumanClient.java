@@ -182,8 +182,25 @@ public class HumanClient{
 	*@param address The new address of the client. This param could be empty.
 	*@param phoneNumber The new phone number of the client. This param could be empty.
 	*/
-	public void updatedData(String address, String phoneNumber){
+	public void updateData(String address, String phoneNumber){
 		this.address = address;
 		this.phoneNumber = phoneNumber;
+	}
+	
+	/**
+	*to show the info of the pet
+	*@param name the name of the pet
+	*@return the info of the pet
+	*/
+	public String infoPet(String name){
+		String msg = "";
+		boolean finded = false;
+		for(int i = 0; i < pet.size() && !finded; i++){
+			if(pet.get(i).getName().equals(name)){
+				msg = pet.get(i).toString();
+				finded = true;
+			}
+		}
+		return msg;
 	}
 }

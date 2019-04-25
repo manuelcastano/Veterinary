@@ -356,7 +356,7 @@ public class ClinicHistory {
 	*post: A new symptom were added to the patient clinic story.<br>
 	*@param symptom The new symptom presented. This param must be not null.
 	*/
-	public void addSymptoms(String symptom){
+	public void addSymptom(String symptom){
 		symptoms += symptom;
 	}
 }

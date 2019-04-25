@@ -193,5 +193,20 @@ public class Animal {
 	public double bodyMassIndex(){
 		return weight/(height * height);
 	}
-
+	
+	/**
+	*to show the information for the pet
+	*@return a message with the pet's information
+	*/
+	public String toString(){
+		String msg = "";
+		msg += "the pet's name is "+name;
+		msg += "\n"+petType();
+		msg += "\nthe age of the pet is "+age;
+		msg += "\nthe weight of the pet is "+weight;
+		msg += "\nthe height of the pet is "+height;
+		msg += "\nthe body mass index of the pet is "+bodyMassIndex();
+		msg += "\nthe owner of the pet is "+nameOwner();
+		return msg;
+	}
 }

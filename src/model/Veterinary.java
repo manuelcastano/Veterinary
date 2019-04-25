@@ -370,4 +370,113 @@ public class Veterinary{
 		}
 		return msg;
 	}
+	/**
+	*to show the info of the pet
+	*@param name the name of the pet
+	*@param identifier the identifier of the pet
+	*@return a message with the pet's information
+	*/
+	public String infoPet(String identifier, String name){
+		String msg = "";
+		boolean clientFinded = false;
+		for(int i = 0; !clientFinded && i < customer.size(); i++){
+			if(customer.get(i).getIdentifier().equals(identifier)){
+				msg = customer.get(i).infoPet(name);
+				clientFinded = true;
+			}
+		}
+		return msg;
+	}
+	
+	/**
+	*to update the information of the client
+	*@param identifier the identifier of the customer
+	*@param address the new address of the client
+	*@param phoneNumber the new phone number of the client
+	*/
+	public void updateData(String identifier, String address, String phoneNumber){
+		boolean clientFinded = false;
+		for(int i = 0; !clientFinded && i < customer.size(); i++){
+			if(customer.get(i).getIdentifier().equals(identifier)){
+				customer.get(i).updateData(address, phoneNumber);
+				clientFinded = true;
+			}
+		}
+	}
+	
+	/**
+	*to add new medicines to the clinic history
+	@param number the number of the room that are the pet
+	*@param name The medicine name. This param must be not null.
+	*@param dose The medicine dose, this param refers to the amount of medicine supplied to the pet each time according the frequence assigned. This param must be not null.
+	*@param costDose The medicine cost by each dose. This param could be empty.
+	*@param frequency The frequency of medicine application. This param could be empty.
+	*@return A message that indiques if medicine was added to the patient clinic story
+	*/
+	public String addMedicines(int number, String name, double dose, double costDose, double frequency){
+		String msg = "";
+		boolean roomFinded = false;
+		for(int i = 0; !roomFinded && i < rooms.length; i++){
+			if(rooms[i].getNumber() == number){
+				msg = rooms[i].addMedicines(name, dose, costDose, frequency);
+				roomFinded = true;
+			}
+		}
+		return msg;
+	}
+	
+	/**
+	*to add new notes to the possible diagnostic of a hospitalized pet
+	@param diagnostic the new notes to the diagnostic
+	@param number the number of the room that are the pet
+	*/
+	public void addNotes(String diagnostic, int number){
+		boolean roomFinded = false;
+		for(int i = 0; !roomFinded && i < rooms.length; i++){
+			if(rooms[i].getNumber() == number){
+				rooms[i].addNotes(diagnostic);
+				roomFinded = true;
+			}
+		}
+	}
+	
+	/**
+	*to add new symptom to the clinic history of a hospitalized pet
+	@param symptom the new symptom to add
+	@param number the number of the room that are the pet
+	*/
+	public void addSymptom(String symptom, int number){
+		boolean roomFinded = false;
+		for(int i = 0; !roomFinded && i < rooms.length; i++){
+			if(rooms[i].getNumber() == number){
+				rooms[i].addSymptom(symptom);
+				roomFinded = true;
+			}
+		}
+	}
+	
+	/**
+	*to calculate the earnings froms the services
+	*/
+	public double servicesEarnings(){
+		double earnings = 0.0;
+		for(int i = 0; i < theServices.size(); i++){
+			earnings += theServices.get(i).getCost();
+		}
+		return earnings;
+	}
+	
+	/**
+	*to calculate the total earnings of the veterinary
+	*/
+	public double totalEarnings(){
+		return hospitalizationEarnings() + servicesEarnings();
+	}
+	
+	/**
+	*to calculate the average earnings from the services
+	*/
+	public double averageServices(){
+		return servicesEarnings()/theServices.size();
+	}
 }

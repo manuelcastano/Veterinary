@@ -46,7 +46,7 @@ public class Main {
 	*/
 	public void showMenu(){
 		int option = 0;
-		while(option != 13){
+		while(option != 24){
 			System.out.println("----------------------------------------------------------------------");
 			System.out.println("1. Register human clients and their pets");
 			System.out.println("2. Hospitalize a pet");
@@ -60,7 +60,16 @@ public class Main {
 			System.out.println("10. Eliminate a client");
 			System.out.println("11. Show the clinic history of a pet");
 			System.out.println("12. Register only a pet");
-			System.out.println("13. Exit");
+			System.out.println("13. To show the information of a pet");
+			System.out.println("14. Update the information of a client");
+			System.out.println("15. Add medicine to a clinic history of a hospitalized patient");
+			System.out.println("16. Add notes to the diagnostic of a clinic history of a hospitalized patient");
+			System.out.println("17. Add new symptom to clinic history of a hospitalized patient");
+			System.out.println("18. Show the earnings from the services");
+			System.out.println("19. Show the total earnings of the veterinary");
+			System.out.println("20. Add a sell service");
+			System.out.println("21. Show the average earnings from the services");
+			System.out.println("24. Exit");
 			System.out.println("----------------------------------------------------------------------");
 			option = reader.nextInt();
 			reader.nextLine();
@@ -102,6 +111,33 @@ public class Main {
 				addPet();
 				break;
 				case(13):
+				infoPet();
+				break;
+				case(14):
+				updateInfo();
+				break;
+				case(15):
+				addMedicines();
+				break;
+				case(16):
+				addNotes();
+				break;
+				case(17):
+				addSymptom();
+				break;
+				case(18):
+				System.out.println("The earnings from the services are "+myLittlePet.servicesEarnings());
+				break;
+				case(19):
+				System.out.println("The total earnings of the veterinary are "+myLittlePet.totalEarnings());
+				break;
+				case(20):
+				sellService();
+				break;
+				case(21):
+				System.out.println("The average earnings from the services are "+myLittlePet.averageServices());
+				break;
+				case(24):
 				break;
 				default:
 				System.out.println("Enter a valid number");
@@ -401,15 +437,15 @@ public class Main {
 			System.out.println("¿From what pet do you want to see the clinic history?");
 			System.out.println(myLittlePet.returnClient(theIdentifier).namePets());
 			if(!(myLittlePet.returnClient(theIdentifier).namePets().equals("\nThe client don't has pets"))){
-			int option = reader.nextInt();
-			reader.nextLine();
-			String theName = myLittlePet.returnClient(theIdentifier).getPet().get(option-1).getName();
-			if(myLittlePet.historyPet(theName, theIdentifier) != null){
-			System.out.println(myLittlePet.historyPet(theName, theIdentifier));
-			}
-			else{
-				System.out.println("The pet has not been hospitalized yet");
-			}
+				int option = reader.nextInt();
+				reader.nextLine();
+				String theName = myLittlePet.returnClient(theIdentifier).getPet().get(option-1).getName();
+				if(myLittlePet.historyPet(theName, theIdentifier) != null){
+					System.out.println(myLittlePet.historyPet(theName, theIdentifier));
+					}
+				else{
+					System.out.println("The pet has not been hospitalized yet");
+					}
 			}
 		}
 	}
@@ -448,5 +484,182 @@ public class Main {
 			myLittlePet.returnClient(theIdentifier).addPet(temporalPet);
 			System.out.println("The pet was added successfully");
 		}
+	}
+	
+	/**
+	*to show the information of a pet
+	*/
+	public void infoPet(){
+		System.out.println("¿What is the identifier of the owner?");
+		String theIdentifier = reader.nextLine();
+		if(!myLittlePet.findClient(theIdentifier)){
+			System.out.println("The client doesn't exist");
+		}
+		else{
+			System.out.println("¿From what pet do you want to see the clinic history?");
+			System.out.println(myLittlePet.returnClient(theIdentifier).namePets());
+			if(!(myLittlePet.returnClient(theIdentifier).namePets().equals("\nThe client don't has pets"))){
+				int option = reader.nextInt();
+				reader.nextLine();
+				String theName = myLittlePet.returnClient(theIdentifier).getPet().get(option-1).getName();
+				System.out.println(myLittlePet.infoPet(theIdentifier, theName));
+			}
+		}
+	}
+	
+	/**
+	*to update the information(address and phone number) of the client
+	*/
+	public void updateInfo(){
+		System.out.println("¿What is the identifier of the owner?");
+		String theIdentifier = reader.nextLine();
+		if(!myLittlePet.findClient(theIdentifier)){
+			System.out.println("The client doesn't exist");
+		}
+		else{
+			System.out.println("¿What is the new address of the client?");
+			String address = reader.nextLine();
+			System.out.println("¿What is the new phone number of the client?");
+			String phoneNumber = reader.nextLine();
+			myLittlePet.updateData(theIdentifier, address, phoneNumber);
+		}
+	}
+	
+	/**
+	*to add new medicines to a clinic history of a hospitalized pet
+	*/
+	public void addMedicines(){
+		int error = 0;
+		while (error == 0){
+			System.out.println("¿In what room is the pet?");
+			System.out.println(myLittlePet.occupiedRooms());
+			int option = reader.nextInt();
+			reader.nextLine();
+			if(myLittlePet.getRooms().length < option || myLittlePet.roomOccupied(option-1) == false){
+				System.out.println("This room are not available");
+			}
+			else{
+				System.out.println("¿How many medicines do you want to add?");
+				int quantityMedicines = reader.nextInt();
+				reader.nextLine();
+				for(int i = 0; i < quantityMedicines; i++){
+					System.out.println("--------------------------------");
+					System.out.println("¿What is the name of the medicine?");
+					String theName = reader.nextLine();
+					System.out.println("¿How many doses of the medicine?");
+					double theDoses = reader.nextDouble();
+					reader.nextLine();
+					System.out.println("¿What is the cost by dose?");
+					double costByDose = reader.nextDouble();
+					reader.nextLine();
+					System.out.println("¿What is the frequency to take the medicine?");
+					double theFrequency = reader.nextDouble();
+					reader.nextLine();
+					myLittlePet.addMedicines(option, theName, theDoses, costByDose, theFrequency);
+				}
+				error = 1;
+			}
+		}
+	}
+	
+	/**
+	*to add new notes to the possible diagnostic of a hospitalized pet
+	*/
+	public void addNotes(){
+		int error = 0;
+		while (error == 0){
+			System.out.println("¿In what room is the pet?");
+			System.out.println(myLittlePet.occupiedRooms());
+			int option = reader.nextInt();
+			reader.nextLine();
+			if(myLittlePet.getRooms().length < option || myLittlePet.roomOccupied(option-1) == false){
+				System.out.println("This room are not available");
+			}
+			else{
+				System.out.println("¿What is the new diagnostic?");
+				String notes = reader.nextLine();
+				myLittlePet.addNotes(notes, option);
+				error = 1;
+			}
+		}
+	}
+	
+	/**
+	*to add new symptom to the clinic history of a hospitalized pet
+	*/
+	public void addSymptom(){
+		int error = 0;
+		while (error == 0){
+			System.out.println("¿In what room is the pet?");
+			System.out.println(myLittlePet.occupiedRooms());
+			int option = reader.nextInt();
+			reader.nextLine();
+			if(myLittlePet.getRooms().length < option || myLittlePet.roomOccupied(option-1) == false){
+				System.out.println("This room are not available");
+			}
+			else{
+				System.out.println("¿What is the new symptom?");
+				String symptom = reader.nextLine();
+				myLittlePet.addSymptom(symptom, option);
+				error = 1;
+			}
+		}
+	}
+	
+	/**
+	*to add a new sell service
+	*/
+	public void sellService(){
+		int errorType = 0;
+		String serviceType = "";
+		while(errorType == 0){
+			System.out.println("Service type\n1. Pet bath in the veterinary\n2. Pet bath at home\n3. Nail cutting\n4. Dental prophylaxis\n5. Vaccine aplication");
+			int type = reader.nextInt();
+			reader.nextLine();
+			if(type == 1){
+				serviceType = Service.PET_SHOWER_V;
+			}
+			else if(type == 2){
+				serviceType = Service.PET_SHOWER_D;
+			}
+			else if(type == 3){
+				serviceType = Service.NAIL_CUT;
+			}
+			else if(type == 4){
+				serviceType = Service.DENTAL;
+			}
+			else if(type == 5){
+				serviceType = Service.VACCINATIONS;
+			}
+			if(serviceType.equals(Service.PET_SHOWER_V) ||serviceType.equals(Service.PET_SHOWER_D) || serviceType.equals(Service.NAIL_CUT) || serviceType.equals(Service.DENTAL) || serviceType.equals(Service.VACCINATIONS)){
+				errorType = 1;
+			}
+		}
+		System.out.println("realization day: ");
+		int day = reader.nextInt();
+		reader.nextLine();
+		System.out.println("realization month: ");
+		int month = reader.nextInt();
+		reader.nextLine();
+		System.out.println("realization year: ");
+		int year = reader.nextInt();
+		reader.nextLine();
+		Date realization = new Date(day, month, year);
+		System.out.println("¿What is the identifier of the owner?");
+		String theIdentifier = reader.nextLine();
+		Animal patient = null;
+		if(!myLittlePet.findClient(theIdentifier)){
+			System.out.println("The client doesn't exist");
+		}
+		else{
+			System.out.println("¿Who was the patient?");
+			System.out.println(myLittlePet.returnClient(theIdentifier).namePets());
+			int option = reader.nextInt();
+			reader.nextLine();
+			patient = myLittlePet.returnClient(theIdentifier).getPet().get(--option);
+		}
+		Service toAdd = new Service(serviceType, realization, patient);
+		myLittlePet.addTheServices(toAdd);
+		System.out.println("The service were added successfully");
 	}
 }

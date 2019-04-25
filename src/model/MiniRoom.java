@@ -140,4 +140,33 @@ public class MiniRoom {
 		}
 		return same;
 	}
+	
+	/**
+	*to add new medicines to the clinic history
+	*@param name The medicine name. This param must be not null.
+	*@param dose The medicine dose, this param refers to the amount of medicine supplied to the pet each time according the frequence assigned. This param must be not null.
+	*@param costDose The medicine cost by each dose. This param could be empty.
+	*@param frequency The frequency of medicine application. This param could be empty.
+	*@return A message that indiques if medicine was added to the patient clinic story
+	*/
+	public String addMedicines(String name, double dose, double costDose, double frequency){
+		String msg = history.addMedicines(name, dose, costDose, frequency);
+		return msg;
+	}
+	
+	/**
+	*to add new notes to the possible diagnostic of a hospitalized pet
+	@param diagnostic the new notes to the diagnostic
+	*/
+	public void addNotes(String diagnostic){
+		history.addNotes(diagnostic);
+	}
+	
+	/**
+	*to add new symptom to the clinic histoy of a hospitalized pet
+	@param symptom the new symptom to add
+	*/
+	public void addSymptom(String symptom){
+		history.addSymptom(symptom);
+	}
 }
