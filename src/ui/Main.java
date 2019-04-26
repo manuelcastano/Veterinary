@@ -519,7 +519,7 @@ public class Main {
 	*to update the information(address and phone number) of the client
 	*/
 	public void updateInfo(){
-		System.out.println("¿What is the identifier of the owner?");
+		System.out.println("¿What is the identifier of the client?");
 		String theIdentifier = reader.nextLine();
 		if(!myLittlePet.findClient(theIdentifier)){
 			System.out.println("The client doesn't exist");
