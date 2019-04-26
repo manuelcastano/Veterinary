@@ -90,7 +90,6 @@ public class Medicine {
 	
 	/**
 	*This method calculates the cost of the medicine<br>
-	*pre: The medicine was created before and its attributes dose and costDose must be not null.<br>
 	*post: The cost is calculated.<br>
 	*@return the cost of the medicine
 	*/

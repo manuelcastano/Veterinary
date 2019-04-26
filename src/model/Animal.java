@@ -132,7 +132,7 @@ public class Animal {
 	
 	/**
 	*to return the name of the owner<br>
-	*pre: The animal was created before and the owner must be not null<br>
+	*pre: The owner must be not null<br>
 	*post: the owner's name is delivered<br>
 	*@return the name of the owner
 	*/
@@ -142,7 +142,7 @@ public class Animal {
 	
 	/**
 	*to return the identifier of the owner<br>
-	*pre: The animal was created before and the owner must be not null<br>
+	*pre: The owner must be not null<br>
 	*post: the owner's identifier is delivered<br>
 	*@return the identifier of the owner
 	*/
@@ -152,7 +152,7 @@ public class Animal {
 	
 	/**
 	*to return the contact details of the owner<br>
-	*pre: The animal was created before and the owner must be not null<br>
+	*pre: The owner must be not null<br>
 	*post: the owner's contact details is delivered<br>
 	*@return the contact details of the owner
 	*/
@@ -162,8 +162,6 @@ public class Animal {
 	
 	/**
 	*to return the type of the pet<br>
-	*pre: The animal was created before and the type must be not null<br>
-	*post: the type of the animal is delivered<br>
 	*@return the animal's type
 	*/
 	public String petType(){

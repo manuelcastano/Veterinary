@@ -3,8 +3,6 @@ import java.util.*;
 import java.time.*;
 import java.time.temporal.ChronoUnit;
 
-//prueba cambio git
-
 /**
 *This class contains the information of the clinic history of a pet
 *@author Manuel David Castaño Saldarriaga
@@ -158,7 +156,7 @@ public class ClinicHistory {
 	
 	/**
 	*To make a report of the clinic history<br>
-	*pre: the clinic history was created before<br>
+	*pre: The pet and the join date must be not null<br>
 	*post: the report is made<br>
 	*@return the report of the clinic history
 	*/
@@ -185,7 +183,7 @@ public class ClinicHistory {
 	
 	/**
 	*to return the contact details of the owner<br>
-	*pre: the clinic history was created before and the pet must be not null<br>
+	*pre: The pet must be not null<br>
 	*post: the details for contact the owner of the pet<br>
 	*@return the details fot contact to the owner
 	*/
@@ -195,7 +193,7 @@ public class ClinicHistory {
 	
 	/**
 	*to calculate the days hospitalized<br>
-	*pre: the clinic history was created before and the join date must be not null<br>
+	*pre: The join date must be not null<br>
 	*post: the days hospitalized is calculated<br>
 	*@return the days hospitalized
 	*/
@@ -231,7 +229,8 @@ public class ClinicHistory {
 	}
 	
 	/**
-	*to calculate the cost of the hospitalization service
+	*to calculate the cost of the hospitalization service<br>
+	*pre: The pet must be not null<br>
 	*@return the cost of the hospitalized service
 	*/
 	public double hospitalizationCost(){
@@ -301,8 +300,8 @@ public class ClinicHistory {
 	
 	/**
 	*to return the identifier of the owner of the pet<br>
-	*pre: the clinic history was created before and the pet must be not null<br>
-	*post: the identifier of the owner is delivered<br>
+	*pre: The pet must be not null<br>
+	*post: The identifier of the owner is delivered<br>
 	*@return the identifier of the owner
 	*/
 	public String identifierOwner(){
@@ -311,7 +310,7 @@ public class ClinicHistory {
 	
 	/**
 	*to return the name of the pet<br>
-	*pre: The clinic history was created before end the pet must be not null<br>
+	*pre: The pet must be not null<br>
 	*post: the pet's name is delivered<br>
 	*@return the name of the pet
 	*/
@@ -321,7 +320,6 @@ public class ClinicHistory {
 	
 	/**
 	*Description This method allows to add new medicines that were prescription during the hospitalization at the patient stories.<br>
-	*pre: The patient clinic story must be not null.<br>
 	*post: New medicines were added to the patient clinic story.<br>
 	*@param name The medicine name. This param must be not null.
 	*@param dose The medicine dose, this param refers to the amount of medicine supplied to the pet each time according the frequence assigned. This param must be not null.
@@ -344,7 +342,6 @@ public class ClinicHistory {
 	
 	/**
 	*Description This method allows to add new notes to the possible diagnostic during the hospitalization at the patient stories.<br>
-	*pre: The patient clinic story must be not null.<br>
 	*post: New notes were added to the possible diagnostic in the patient clinic story.<br>
 	*@param diagnostic The notes of possible diagnostic. This param must be not null.
 	*/
@@ -354,7 +351,6 @@ public class ClinicHistory {
 	
 	/**
 	*Description This method allows to add a new symptom presented during the hospitalization at the patient stories.<br>
-	*pre: The patient clinic story must be not null.<br>
 	*post: A new symptom were added to the patient clinic story.<br>
 	*@param symptom The new symptom presented. This param must be not null.
 	*/

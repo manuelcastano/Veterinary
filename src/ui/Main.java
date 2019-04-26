@@ -42,7 +42,8 @@ public class Main {
 	}
 
 	/**
-	*To show the options that can do the user
+	*To show the options that can do the user<br>
+	*pre: the Scanner and the veterinary must be initialized<br>
 	*/
 	public void showMenu(){
 		int option = 0;
@@ -155,7 +156,8 @@ public class Main {
 	}
 	
 	/**
-	*To iniatialize default objects to check the funcionality of the program
+	*To initialize default objects to check the funcionality of the program<br>
+	*pre: the Scanner and the veterinary must be initialized<br>
 	*/
 	public void init(){
 		myLittlePet = new Veterinary();
@@ -207,7 +209,8 @@ public class Main {
 	}
 
 	/**
-	*To add new customers and their pets
+	*To add new customers and their pets<br>
+	*pre: the Scanner and the veterinary must be initialized<br>
 	*/
 	public void addCustomers(){
 		System.out.println("Customer's name:");
@@ -258,7 +261,8 @@ public class Main {
 	}
 
 	/**
-	*to hospitalize a pet
+	*to hospitalize a pet<br>
+	*pre: the Scanner and the veterinary must be initialized<br>
 	*/
 	public void hospitalizePet(){
 		if(myLittlePet.availableRoom() == true){
@@ -321,7 +325,8 @@ public class Main {
 	}
 	
 	/**
-	*to consult the contact details of the owner
+	*to consult the contact details of the owner<br>
+	*pre: the Scanner and the veterinary must be initialized<br>
 	*/
 	public void contactOwner(){
 		int error = 0;
@@ -341,7 +346,8 @@ public class Main {
 	}
 	
 	/**
-	*to discharge a pet that is hopitalized
+	*to discharge a pet that is hopitalized<br>
+	*pre: the Scanner and the veterinary must be initialized<br>
 	*/
 	public void dischargePet(){
 		if(!myLittlePet.availableRoom()){
@@ -382,7 +388,8 @@ public class Main {
 	}
 	
 	/**
-	*to know the number of room that is occupied by a pet
+	*to know the number of room that is occupied by a pet<br>
+	*pre: the Scanner and the veterinary must be initialized<br>
 	*/
 	public void roomPet(){
 		System.out.println("¿What is the name of the pet?");
@@ -398,7 +405,8 @@ public class Main {
 	}
 	
 	/**
-	*to eliminate a pet
+	*to eliminate a pet<br>
+	*pre: the Scanner and the veterinary must be initialized<br>
 	*/
 	public void eliminatePet(){
 		System.out.println("¿What is the identifier of the owner?");
@@ -419,7 +427,8 @@ public class Main {
 	}
 	
 	/**
-	*to eliminate a client
+	*to eliminate a client<br>
+	*pre: the Scanner and the veterinary must be initialized<br>
 	*/
 	public void eliminateClient(){
 		System.out.println("¿What is the identifier of the client?");
@@ -433,7 +442,8 @@ public class Main {
 	}
 	
 	/**
-	*to show the clinic history of a pet
+	*to show the clinic history of a pet<br>
+	*pre: the Scanner and the veterinary must be initialized<br>
 	*/
 	public void historyPet(){
 		System.out.println("¿What is the identifier of the owner?");
@@ -459,7 +469,8 @@ public class Main {
 	}
 	
 	/**
-	*to add only a pet
+	*to add only a pet<br>
+	*pre: the Scanner and the veterinary must be initialized<br>
 	*/
 	public void addPet(){
 		System.out.println("¿What is the identifier of the owner?");
@@ -495,7 +506,8 @@ public class Main {
 	}
 	
 	/**
-	*to show the information of a pet
+	*to show the information of a pet<br>
+	*pre: the Scanner and the veterinary must be initialized<br>
 	*/
 	public void infoPet(){
 		System.out.println("¿What is the identifier of the owner?");
@@ -516,7 +528,8 @@ public class Main {
 	}
 	
 	/**
-	*to update the information(address and phone number) of the client
+	*to update the information(address and phone number) of the client<br>
+	*pre: the Scanner and the veterinary must be initialized<br>
 	*/
 	public void updateInfo(){
 		System.out.println("¿What is the identifier of the client?");
@@ -534,7 +547,8 @@ public class Main {
 	}
 	
 	/**
-	*to add new medicines to a clinic history of a hospitalized pet
+	*to add new medicines to a clinic history of a hospitalized pet<br>
+	*pre: the Scanner and the veterinary must be initialized<br>
 	*/
 	public void addMedicines(){
 		int error = 0;
@@ -571,7 +585,8 @@ public class Main {
 	}
 	
 	/**
-	*to add new notes to the possible diagnostic of a hospitalized pet
+	*to add new notes to the possible diagnostic of a hospitalized pet<br>
+	*pre: the Scanner and the veterinary must be initialized<br>
 	*/
 	public void addNotes(){
 		int error = 0;
@@ -593,7 +608,8 @@ public class Main {
 	}
 	
 	/**
-	*to add new symptom to the clinic history of a hospitalized pet
+	*to add new symptom to the clinic history of a hospitalized pet<br>
+	*pre: the Scanner and the veterinary must be initialized<br>
 	*/
 	public void addSymptom(){
 		int error = 0;
@@ -615,7 +631,8 @@ public class Main {
 	}
 	
 	/**
-	*to add a new sell service
+	*to add a new sell service<br>
+	*pre: the Scanner and the veterinary must be initialized<br>
 	*/
 	public void sellService(){
 		int errorType = 0;
@@ -672,7 +689,8 @@ public class Main {
 	}
 	
 	/**
-	*to calculate the average earnings in a week
+	*to calculate the average earnings in a week<br>
+	*pre: the Scanner and the veterinary must be initialized<br>
 	*/
 	public void averageEarnings(){
 		System.out.println("first day in the week: ");
@@ -689,7 +707,8 @@ public class Main {
 	}
 	
 	/**
-	*To show the reports of the services realized between two dates
+	*To show the reports of the services realized between two dates<br>
+	*pre: the Scanner and the veterinary must be initialized<br>
 	*/
 	public void reportServices(){
 		System.out.println("Begin date:");

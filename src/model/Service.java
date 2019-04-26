@@ -135,8 +135,8 @@ public class Service{
 	
 	/**
 	*Calculates the cost of the service<br>
-	*pre: the service was created before and the type must be not null<br>
-	*post: the cost is calculated<br>
+	*pre: The type must be not null<br>
+	*post: The cost is calculated<br>
 	*@return the cost of the service
 	*/
 	public double calculateCost(){
@@ -160,7 +160,9 @@ public class Service{
 	}
 	
 	/**
-	*to get the realization date of the service in the history
+	*to get the realization date of the service in the history<br>
+	*pre: the realization date must be not null and the day must be not zero<br>
+	*post: The realization date is calculated
 	@return the day in the history that the service was realized 
 	*/
 	public int realizationDate(){
@@ -181,6 +183,7 @@ public class Service{
 	
 	/**
 	*to return a report of the service
+	*pre: The realization date and the pet must be not null
 	*@return a report of the service
 	*/
 	public String toString(){

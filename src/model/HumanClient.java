@@ -110,7 +110,7 @@ public class HumanClient{
 
 	/**
 	*to add a pet<br>
-	*pre: The human client was created before and the pet is initialized<br>
+	*pre: The ArrayList of pets is initialized<br>
 	*post: The new pet were added to the human client<br>
 	*@param pet1 the pet to add
 	*/
@@ -120,7 +120,7 @@ public class HumanClient{
 
 	/**
 	*to return the name of the pets that the client has<br>
-	*pre: The human client was created before and pet is initialized<br>
+	*pre: The ArrayList of pets is initialized<br>
 	*post: the names of the pets is delivered<br>
 	*@return the name of the pets
 	*/
@@ -154,7 +154,7 @@ public class HumanClient{
 	
 	/**
 	*to eliminate a pet<br>
-	*pre: the human client was created before and pet is initialized<br>
+	*pre: The ArrayList of pets is initialized<br>
 	*post: the pet is eliminated<br>
 	*@param petName the name of the pet to eliminate
 	*@return a text with the result of the operation
@@ -177,7 +177,6 @@ public class HumanClient{
 	
 	/**
 	*Description This method allows to update the basic data of a veterinary client, these data include, address and phone number.
-	*pre: The client was created before.
 	*post: The address and /or phone number of the client is updated.
 	*@param address The new address of the client. This param could be empty.
 	*@param phoneNumber The new phone number of the client. This param could be empty.
@@ -189,6 +188,7 @@ public class HumanClient{
 	
 	/**
 	*to show the info of the pet
+	*pre: The ArrayList of pets is initialized
 	*@param name the name of the pet
 	*@return the info of the pet
 	*/

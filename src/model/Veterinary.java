@@ -195,7 +195,8 @@ public class Veterinary{
 	}
 	
 	/**
-	*to return if the room is occupied
+	*to return if the room is occupied<br>
+	*pre: rooms is initialized<br>
 	*@param number the number of the room
 	*@return a boolean indicates if the room is occupied or not
 	*/
@@ -208,7 +209,8 @@ public class Veterinary{
 	}
 	
 	/**
-	*to return the rooms that are occupied in this moment
+	*to return the rooms that are occupied in this moment<br>
+	*pre: rooms is initialized<br>
 	*@return the rooms occupied
 	*/
 	public String occupiedRooms(){
@@ -222,7 +224,8 @@ public class Veterinary{
 	}
 	
 	/**
-	*to get the contact details of the owner
+	*to get the contact details of the owner<br>
+	*pre: rooms is initialized<br>
 	*@param number the number of the room
 	*@return the contact details of the pet's owner 
 	*/
@@ -231,7 +234,8 @@ public class Veterinary{
 	}
 	
 	/**
-	*to get the report of a specific room
+	*to get the report of a specific room<br>
+	*pre: rooms is initialized<br>
 	*@param position the number of the room
 	*@return the report of the clinic history
 	*/
@@ -242,7 +246,8 @@ public class Veterinary{
 	}
 	
 	/**
-	*to set the status of the clinic history
+	*to set the status of the clinic history<br>
+	*pre: rooms is initialized<br>
 	*@param position the number of the room
 	*@param status the new status of the clinic history
 	*/
@@ -251,7 +256,8 @@ public class Veterinary{
 	}
 	
 	/**
-	*to set the exit date
+	*to set the exit date<br>
+	*pre: rooms is initialized<br>
 	*@param position the number of the room
 	*@param exitDate the exit date of the pet
 	*/
@@ -260,7 +266,8 @@ public class Veterinary{
 	}
 	
 	/**
-	*to set the availability of a room
+	*to set the availability of a room<br>
+	*pre: rooms is initialized<br>
 	*@param position the number of the room
 	*@param available the availability of the room
 	*/
@@ -269,7 +276,8 @@ public class Veterinary{
 	}
 	
 	/**
-	*to see the reports from record of clinic histories
+	*to see the reports from record of clinic histories<br>
+	*The ArrayList of clinic histories is initialized<br>
 	*@return the roports of the clinic histories in the record
 	*/
 	public String reportsRecord(){
@@ -286,7 +294,8 @@ public class Veterinary{
 	}
 	
 	/**
-	*to get the earnings from hospitalization service
+	*to get the earnings from hospitalization service<br>
+	*The ArrayList of clinic histories is initialized<br>
 	*@return the earnings from the hospitalization service
 	*/
 	public double hospitalizationEarnings(){
@@ -303,7 +312,8 @@ public class Veterinary{
 	}
 	
 	/**
-	*to get the number of room that is occupied by a pet
+	*to get the number of room that is occupied by a pet<br>
+	*pre: rooms is initialized<br>
 	*@param identifier the identifier of the owner
 	*@param name the pet's name
 	*@return the number of the room occupied by the pet
@@ -321,7 +331,8 @@ public class Veterinary{
 	}
 	
 	/**
-	*to eliminate a pet
+	*to eliminate a pet<br>
+	*The ArrayList of humans clients is initialized<br>
 	*@param identifier the identifier of the owner
 	*@param theName the name of the pet
 	*@return a text indicates if the pet was eliminated successfuly or not
@@ -337,7 +348,8 @@ public class Veterinary{
 	}
 	
 	/**
-	*eliminate a client
+	*eliminate a client<br>
+	*The ArrayList of humans clients is initialized<br>
 	*@param identifier the identifier of the owner
 	*@return a text indicates if the client was eliminated successfuly or not
 	*/
@@ -353,7 +365,9 @@ public class Veterinary{
 	}
 	
 	/**
-	*to return the clinic historys of a pet
+	*to return the clinic historys of a pet<br>
+	*the record of clinic histories is initialized<br>
+	*rooms is initialized<br>
 	*@param name the name of the pet
 	*@param identifier the identifier of the owner
 	*@return the clinic history of the pet
@@ -373,7 +387,8 @@ public class Veterinary{
 		return msg;
 	}
 	/**
-	*to show the info of the pet
+	*to show the info of the pet<br>
+	*The ArrayList of humans clients is initialized<br>
 	*@param name the name of the pet
 	*@param identifier the identifier of the pet
 	*@return a message with the pet's information
@@ -391,7 +406,8 @@ public class Veterinary{
 	}
 	
 	/**
-	*to update the information of the client
+	*to update the information of the clienttbr>
+	*the ArrayList of humans clients is initialized<br>
 	*@param identifier the identifier of the customer
 	*@param address the new address of the client
 	*@param phoneNumber the new phone number of the client
@@ -407,8 +423,9 @@ public class Veterinary{
 	}
 	
 	/**
-	*to add new medicines to the clinic history
-	@param number the number of the room that are the pet
+	*to add new medicines to the clinic history<br>
+	*pre: the rooms is initialized<br>
+	*@param number the number of the room that are the pet
 	*@param name The medicine name. This param must be not null.
 	*@param dose The medicine dose, this param refers to the amount of medicine supplied to the pet each time according the frequence assigned. This param must be not null.
 	*@param costDose The medicine cost by each dose. This param could be empty.
@@ -428,9 +445,10 @@ public class Veterinary{
 	}
 	
 	/**
-	*to add new notes to the possible diagnostic of a hospitalized pet
-	@param diagnostic the new notes to the diagnostic
-	@param number the number of the room that are the pet
+	*to add new notes to the possible diagnostic of a hospitalized pet<br>
+	*pre: the rooms is initialized<br>
+	*@param diagnostic the new notes to the diagnostic
+	*@param number the number of the room that are the pet
 	*/
 	public void addNotes(String diagnostic, int number){
 		boolean roomFinded = false;
@@ -443,9 +461,10 @@ public class Veterinary{
 	}
 	
 	/**
-	*to add new symptom to the clinic history of a hospitalized pet
-	@param symptom the new symptom to add
-	@param number the number of the room that are the pet
+	*to add new symptom to the clinic history of a hospitalized pet<br>
+	*pre: the rooms is initialized<br>
+	*@param symptom the new symptom to add
+	*@param number the number of the room that are the pet
 	*/
 	public void addSymptom(String symptom, int number){
 		boolean roomFinded = false;
@@ -458,7 +477,8 @@ public class Veterinary{
 	}
 	
 	/**
-	*to calculate the earnings froms the services
+	*to calculate the earnings froms the services<br>
+	*pre: theServices is initialized<br>
 	@return the earnings from the services
 	*/
 	public double servicesEarnings(){
@@ -478,7 +498,8 @@ public class Veterinary{
 	}
 	
 	/**
-	*to calculate the average earnings from the services
+	*to calculate the average earnings from the services<br>
+	*pre: theServices is initialized<br>
 	*@return the average earnings from the services
 	*/
 	public double averageServices(){
@@ -486,9 +507,10 @@ public class Veterinary{
 	}
 	
 	/**
-	*to calculate the average earnings in a week
-	*@param firstDayofTheWeek the begin of the week
-	@return the average earnings in a week
+	*to calculate the average earnings in a week<br>
+	*pre: The ArrayList of services is initialized<br>
+	*@param firstDayofTheWeek the begin of the week. This param must be not null.
+	*@return the average earnings in a week
 	*/
 	public double averageEarningsWeek(Date firstDayofTheWeek){
 		int servicesInThatWeek = 0;
@@ -516,9 +538,10 @@ public class Veterinary{
 	}
 	
 	/**
-	*to get the reports of the services realized between two dates
-	*@param beginDate the first date
-	*@param finalDate the finish date
+	*to get the reports of the services realized between two dates<br>
+	*pre: The ArrayList of services is initialized<br>
+	*@param beginDate the first date. This param must be not null.
+	*@param finalDate the finish date. This param must be not null.
 	*@return a message with the reports of the services realized between that days
 	*/
 	public String reportServices(Date beginDate, Date finalDate){

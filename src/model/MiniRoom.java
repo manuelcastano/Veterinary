@@ -74,7 +74,7 @@ public class MiniRoom {
 	
 	/**
 	*To return the report of the clinic history<br>
-	*pre: the availability is false and the history must be not null<br>
+	*pre: The history must be not null<br>
 	*post: the report is generated<br>
 	*@return the report of the clinic history of the pet hospitalized
 	*/
@@ -87,7 +87,7 @@ public class MiniRoom {
 	
 	/**
 	*To return the contact details of the pet's owner<br>
-	*pre: the availability is false and the history must be not null<br>
+	*pre: The history must be not null<br>
 	*The contact details of the owner is delivered<br>
 	*@return the contact details of the owner
 	*/
@@ -97,7 +97,7 @@ public class MiniRoom {
 	
 	/**
 	*to set the exit date of the clinic history<br>
-	*pre: the availability is false and the history must be not null<br>
+	*pre: The history must be not null<br>
 	*post: the exit date is set<br>
 	*@param exit the exit date
 	*/
@@ -107,17 +107,17 @@ public class MiniRoom {
 	
 	/**
 	*to set the status of the clinic history<br>
-	*pre: the availability is false and the history must be not null<br>
+	*pre: The history must be not null<br>
 	*post: the status of the clinic history is set<br>
 	*@param status the status of the clinic history
 	*/
 	public void statusHistory(boolean status){
-		getHistory().setStatus(status);
+		history.setStatus(status);
 	}
 	
 	/**
 	*to get the cost of the hospitalization<br>
-	*pre: the availability is false and the history must be not null<br>
+	*pre: The history must be not null<br>
 	*post: the cost of the hospitalization is calculated<br>
 	*@return the cost of the hospitalization
 	*/
@@ -127,7 +127,7 @@ public class MiniRoom {
 	
 	/**
 	*to know if the pet is equals to the pet in the clinic history<br>
-	*pre: the availability is false and the history must be not null<br>
+	*pre: The history must be not null<br>
 	*post: the pet is verified<br>
 	*@param identifier the identifier of the owner
 	*@param name the name of the pet
@@ -142,7 +142,8 @@ public class MiniRoom {
 	}
 	
 	/**
-	*to add new medicines to the clinic history
+	*to add new medicines to the clinic history<br>
+	*The history must be not null<br>
 	*@param name The medicine name. This param must be not null.
 	*@param dose The medicine dose, this param refers to the amount of medicine supplied to the pet each time according the frequence assigned. This param must be not null.
 	*@param costDose The medicine cost by each dose. This param could be empty.
@@ -156,6 +157,7 @@ public class MiniRoom {
 	
 	/**
 	*to add new notes to the possible diagnostic of a hospitalized pet
+	*The history must be not null<br>
 	@param diagnostic the new notes to the diagnostic
 	*/
 	public void addNotes(String diagnostic){
@@ -163,7 +165,8 @@ public class MiniRoom {
 	}
 	
 	/**
-	*to add new symptom to the clinic histoy of a hospitalized pet
+	*to add new symptom to the clinic histoy of a hospitalized pet<br>
+	*The history must be not null<br>
 	@param symptom the new symptom to add
 	*/
 	public void addSymptom(String symptom){
