@@ -1,5 +1,7 @@
 package model;
-import java.util.ArrayList;
+import java.util.*;
+import java.time.*;
+import java.time.temporal.ChronoUnit;
 
 /**
 *This is the main class in the model, contains all information for the veterinary
@@ -132,7 +134,7 @@ public class Veterinary{
 	public HumanClient returnClient(String identifier){
 		HumanClient client1 = null;
 		boolean clientFinded = false;
-		if(findClient(identifier) == true){
+		if(findClient(identifier)){
 			for(int i = 0; !clientFinded && i < customer.size(); i++){
 				if(identifier.equals(customer.get(i).getIdentifier())){
 					client1 = customer.get(i);
@@ -457,6 +459,7 @@ public class Veterinary{
 	
 	/**
 	*to calculate the earnings froms the services
+	@return the earnings from the services
 	*/
 	public double servicesEarnings(){
 		double earnings = 0.0;
@@ -468,6 +471,7 @@ public class Veterinary{
 	
 	/**
 	*to calculate the total earnings of the veterinary
+	*@return the total earnings with the service earnings end hospitalization earnings
 	*/
 	public double totalEarnings(){
 		return hospitalizationEarnings() + servicesEarnings();
@@ -475,8 +479,79 @@ public class Veterinary{
 	
 	/**
 	*to calculate the average earnings from the services
+	*@return the average earnings from the services
 	*/
 	public double averageServices(){
 		return servicesEarnings()/theServices.size();
+	}
+	
+	/**
+	*to calculate the average earnings in a week
+	*@param firstDayofTheWeek the begin of the week
+	@return the average earnings in a week
+	*/
+	public double averageEarningsWeek(Date firstDayofTheWeek){
+		int servicesInThatWeek = 0;
+		int days = 0;
+		GregorianCalendar date = new GregorianCalendar(firstDayofTheWeek.getYear(), firstDayofTheWeek.getMonth() - 1, firstDayofTheWeek.getDay());
+		GregorianCalendar firstDate = new GregorianCalendar(0, 0, 1);//First day in the history of our calendar
+		while (true) {
+			if ((date.get(Calendar.DAY_OF_MONTH) == firstDate.get(Calendar.DAY_OF_MONTH))
+				&& (date.get(Calendar.MONTH) == firstDate.get(Calendar.MONTH))
+			    && (date.get(Calendar.YEAR) == firstDate.get(Calendar.YEAR))){
+				break;
+			}
+			firstDate.add(Calendar.DAY_OF_MONTH, 1);
+			days++;
+		}
+		int finalWeek = days+7;//the end of the week
+		double averageEarnings = 0.0;
+		for(int i = 0; i < theServices.size(); i++){
+			if(theServices.get(i).realizationDate() >= days && theServices.get(i).realizationDate() <= finalWeek){
+				servicesInThatWeek++;
+				averageEarnings += theServices.get(i).getCost();
+			}
+		}
+		return averageEarnings/servicesInThatWeek;
+	}
+	
+	/**
+	*to get the reports of the services realized between two dates
+	*@param beginDate the first date
+	*@param finalDate the finish date
+	*@return a message with the reports of the services realized between that days
+	*/
+	public String reportServices(Date beginDate, Date finalDate){
+		String msg = "";
+		int daysBegin = 0;
+		GregorianCalendar dateBegin = new GregorianCalendar(beginDate.getYear(), beginDate.getMonth() - 1, beginDate.getDay());
+		GregorianCalendar firstDate = new GregorianCalendar(0, 0, 1);//First day in the history of our calendar
+		while (true) {
+			if ((dateBegin.get(Calendar.DAY_OF_MONTH) == firstDate.get(Calendar.DAY_OF_MONTH))
+				&& (dateBegin.get(Calendar.MONTH) == firstDate.get(Calendar.MONTH))
+			    && (dateBegin.get(Calendar.YEAR) == firstDate.get(Calendar.YEAR))){
+				break;
+			}
+			firstDate.add(Calendar.DAY_OF_MONTH, 1);
+			daysBegin++;
+		}
+		int finalDays = 0;
+		GregorianCalendar dateFinal = new GregorianCalendar(finalDate.getYear(), finalDate.getMonth() - 1, finalDate.getDay());
+		GregorianCalendar firstDay = new GregorianCalendar(0, 0, 1);//First day in the history of our calendar
+		while (true) {
+			if ((dateFinal.get(Calendar.DAY_OF_MONTH) == firstDay.get(Calendar.DAY_OF_MONTH))
+				&& (dateFinal.get(Calendar.MONTH) == firstDay.get(Calendar.MONTH))
+			    && (dateFinal.get(Calendar.YEAR) == firstDay.get(Calendar.YEAR))){
+				break;
+			}
+			firstDay.add(Calendar.DAY_OF_MONTH, 1);
+			finalDays++;
+		}
+		for(int i = 0; i < theServices.size(); i++){
+			if(theServices.get(i).realizationDate() >= daysBegin && theServices.get(i).realizationDate() <= finalDays){
+				msg += theServices.get(i).toString();
+			}
+		}
+		return msg;
 	}
 }

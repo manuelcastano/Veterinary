@@ -1,4 +1,7 @@
 package model;
+import java.util.*;
+import java.time.*;
+import java.time.temporal.ChronoUnit;
 
 /**
 *This class contains the service's information
@@ -154,5 +157,41 @@ public class Service{
 			theCost = 45000.0;
 		}
 		return theCost;
+	}
+	
+	/**
+	*to get the realization date of the service in the history
+	@return the day in the history that the service was realized 
+	*/
+	public int realizationDate(){
+		int days = 0;
+		GregorianCalendar date = new GregorianCalendar(realization.getYear(), realization.getMonth() - 1, realization.getDay());
+		GregorianCalendar firstDate = new GregorianCalendar(0, 0, 1);//First day in the history of our calendar
+		while (true) {
+			if ((date.get(Calendar.DAY_OF_MONTH) == firstDate.get(Calendar.DAY_OF_MONTH))
+				&& (date.get(Calendar.MONTH) == firstDate.get(Calendar.MONTH))
+			    && (date.get(Calendar.YEAR) == firstDate.get(Calendar.YEAR))){
+				break;
+			}
+			firstDate.add(Calendar.DAY_OF_MONTH, 1);
+			days++;
+		}
+		return days;
+	}
+	
+	/**
+	*to return a report of the service
+	*@return a report of the service
+	*/
+	public String toString(){
+		String msg = "";
+		msg += "\n*********************************************";
+		msg += "\nThe type of the service is "+type;
+		msg += "\nThe cost of the service is "+cost;
+		msg += "\nThe name of the owner is "+thePet.nameOwner();
+		msg += "\nThe name of the pet is "+namePet;
+		msg += "\nThe realization date is "+realization.getDay()+"/"+realization.getMonth()+"/"+realization.getYear();
+		msg += "\n*********************************************";
+		return msg;
 	}
 }

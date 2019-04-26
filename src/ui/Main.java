@@ -69,6 +69,8 @@ public class Main {
 			System.out.println("19. Show the total earnings of the veterinary");
 			System.out.println("20. Add a sell service");
 			System.out.println("21. Show the average earnings from the services");
+			System.out.println("22. Calculate the average earnings in a week");
+			System.out.println("23. Show the reports of the services realized between two days");
 			System.out.println("24. Exit");
 			System.out.println("----------------------------------------------------------------------");
 			option = reader.nextInt();
@@ -136,6 +138,12 @@ public class Main {
 				break;
 				case(21):
 				System.out.println("The average earnings from the services are "+myLittlePet.averageServices());
+				break;
+				case(22):
+				averageEarnings();
+				break;
+				case(23):
+				reportServices();
 				break;
 				case(24):
 				break;
@@ -661,5 +669,51 @@ public class Main {
 		Service toAdd = new Service(serviceType, realization, patient);
 		myLittlePet.addTheServices(toAdd);
 		System.out.println("The service were added successfully");
+	}
+	
+	/**
+	*to calculate the average earnings in a week
+	*/
+	public void averageEarnings(){
+		System.out.println("first day in the week: ");
+		int day = reader.nextInt();
+		reader.nextLine();
+		System.out.println("month: ");
+		int month = reader.nextInt();
+		reader.nextLine();
+		System.out.println("year: ");
+		int year = reader.nextInt();
+		reader.nextLine();
+		Date week = new Date(day, month, year);
+		System.out.println("The average earnings in that week are "+myLittlePet.averageEarningsWeek(week));
+	}
+	
+	/**
+	*To show the reports of the services realized between two dates
+	*/
+	public void reportServices(){
+		System.out.println("Begin date:");
+		System.out.println("Day:");
+		int beginDay = reader.nextInt();
+		reader.nextLine();
+		System.out.println("Month:");
+		int beginMonth = reader.nextInt();
+		reader.nextLine();
+		System.out.println("Year:");
+		int beginYear = reader.nextInt();
+		reader.nextLine();
+		System.out.println("Final date:");
+		System.out.println("Day:");
+		int finalDay = reader.nextInt();
+		reader.nextLine();
+		System.out.println("Month:");
+		int finalMonth = reader.nextInt();
+		reader.nextLine();
+		System.out.println("Year:");
+		int finalYear = reader.nextInt();
+		reader.nextLine();
+		Date begin = new Date(beginDay, beginMonth, beginYear);
+		Date finish = new Date(finalDay, finalMonth, finalYear);
+		System.out.println(myLittlePet.reportServices(begin, finish));
 	}
 }
