@@ -406,7 +406,7 @@ public class Veterinary{
 	}
 	
 	/**
-	*to update the information of the clienttbr>
+	*to update the information of the client<br>
 	*the ArrayList of humans clients is initialized<br>
 	*@param identifier the identifier of the customer
 	*@param address the new address of the client
